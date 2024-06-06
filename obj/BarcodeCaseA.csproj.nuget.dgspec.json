@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\BarcodeCaseA\\BarcodeCaseA.csproj": {}
+    "D:\\Barcode Scanner Proyek [tidak jadi]\\BarcodeCaseA\\BarcodeCaseA.csproj": {}
   },
   "projects": {
-    "D:\\BarcodeCaseA\\BarcodeCaseA.csproj": {
+    "D:\\Barcode Scanner Proyek [tidak jadi]\\BarcodeCaseA\\BarcodeCaseA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\BarcodeCaseA\\BarcodeCaseA.csproj",
+        "projectUniqueName": "D:\\Barcode Scanner Proyek [tidak jadi]\\BarcodeCaseA\\BarcodeCaseA.csproj",
         "projectName": "BarcodeCaseA",
-        "projectPath": "D:\\BarcodeCaseA\\BarcodeCaseA.csproj",
+        "projectPath": "D:\\Barcode Scanner Proyek [tidak jadi]\\BarcodeCaseA\\BarcodeCaseA.csproj",
         "packagesPath": "C:\\Users\\indah\\.nuget\\packages\\",
-        "outputPath": "D:\\BarcodeCaseA\\obj\\",
+        "outputPath": "D:\\Barcode Scanner Proyek [tidak jadi]\\BarcodeCaseA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\indah\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -44,6 +44,16 @@
       "frameworks": {
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            },
+            "System.IO.Ports": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

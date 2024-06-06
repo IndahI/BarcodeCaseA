@@ -1,3 +1,8 @@
+using BarcodeCaseA.Model;
+using BarcodeCaseA.Presenter;
+using BarcodeCaseA.Properties;
+using BarcodeCaseA.View;
+
 namespace BarcodeCaseA
 {
     internal static class Program
@@ -10,8 +15,14 @@ namespace BarcodeCaseA
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            //ApplicationConfiguration.Initialize();
+            //Application.Run(new MainForm());
+
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            ILoginView view = new LoginView();
+            ILoginRepository repository = new LoginRepository();
+            new LoginPresenter(view, repository);
+            Application.Run((Form)view);
         }
     }
 }
