@@ -8,8 +8,8 @@ namespace BarcodeCaseA.View
 {
     public interface ILoginView
     {
-        string Nik { get; }
-        string Password { get; }
+        string Nik { get; set; }
+        string Password { get; set; }
         bool IsLoginSuccessful { get; }
 
         void ShowMessage(string message);

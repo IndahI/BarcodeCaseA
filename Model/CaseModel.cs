@@ -17,6 +17,7 @@ namespace BarcodeCaseA.Model
         public string serialNumber;
         public string adjustment;
         public string modelCode;
+        public string inspectorId;
 
         // Properties
         [DisplayName("ID")]
@@ -59,6 +60,13 @@ namespace BarcodeCaseA.Model
         {
             get => adjustment;
             set => adjustment = value;
+        }
+
+        [DisplayName("InspectorId")]
+        public string InspectorId
+        {
+            get => inspectorId;
+            set => inspectorId = value;
         }
     }
 }

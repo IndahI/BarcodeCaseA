@@ -52,17 +52,18 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 89);
+            panel1.Size = new Size(958, 89);
             panel1.TabIndex = 0;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Franklin Gothic Medium", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Franklin Gothic Medium", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(21, 55);
+            label2.Location = new Point(564, 31);
             label2.Name = "label2";
-            label2.Size = new Size(217, 21);
+            label2.Size = new Size(391, 37);
             label2.TabIndex = 1;
             label2.Text = "Laundry System Business Unit";
             // 
@@ -71,7 +72,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Franklin Gothic Demi", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(21, 9);
+            label1.Location = new Point(12, 26);
             label1.Name = "label1";
             label1.Size = new Size(398, 41);
             label1.TabIndex = 0;
@@ -86,8 +87,8 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(tableLayoutPanel1);
-            splitContainer1.Size = new Size(800, 361);
-            splitContainer1.SplitterDistance = 60;
+            splitContainer1.Size = new Size(958, 361);
+            splitContainer1.SplitterDistance = 71;
             splitContainer1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -110,7 +111,7 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            tableLayoutPanel1.Size = new Size(60, 361);
+            tableLayoutPanel1.Size = new Size(71, 361);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnLogOut
@@ -123,7 +124,7 @@
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
             btnLogOut.Location = new Point(3, 317);
             btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new Size(54, 41);
+            btnLogOut.Size = new Size(65, 41);
             btnLogOut.TabIndex = 2;
             btnLogOut.Text = "Log Out";
             btnLogOut.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -139,9 +140,9 @@
             btnScan.Image = (Image)resources.GetObject("btnScan.Image");
             btnScan.Location = new Point(3, 53);
             btnScan.Name = "btnScan";
-            btnScan.Size = new Size(54, 38);
+            btnScan.Size = new Size(65, 38);
             btnScan.TabIndex = 1;
-            btnScan.Text = "Scanning";
+            btnScan.Text = "Scan";
             btnScan.TextImageRelation = TextImageRelation.ImageAboveText;
             btnScan.UseVisualStyleBackColor = true;
             // 
@@ -155,7 +156,7 @@
             btnRecord.Image = (Image)resources.GetObject("btnRecord.Image");
             btnRecord.Location = new Point(3, 97);
             btnRecord.Name = "btnRecord";
-            btnRecord.Size = new Size(54, 38);
+            btnRecord.Size = new Size(65, 38);
             btnRecord.TabIndex = 0;
             btnRecord.Text = "Record";
             btnRecord.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -165,7 +166,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(958, 450);
             Controls.Add(splitContainer1);
             Controls.Add(panel1);
             Name = "MainForm";

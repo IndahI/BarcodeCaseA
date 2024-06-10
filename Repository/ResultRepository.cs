@@ -40,7 +40,8 @@ namespace BarcodeCaseA.Repository
                             ModelNumber = reader["ModelNumber"].ToString(),
                             SerialNumber = reader["GlobalCodeId"].ToString(),
                             Adjustment = reader["Adjustment"].ToString(),
-                            ModelCode = reader["ModelCodeId"].ToString()
+                            ModelCode = reader["ModelCodeId"].ToString(),
+                            InspectorId = reader["InspectorId"].ToString()
                         });
                     }
                 }
@@ -70,7 +71,8 @@ namespace BarcodeCaseA.Repository
                             ModelNumber = reader["ModelNumber"].ToString(),
                             SerialNumber = reader["GlobalCodeId"].ToString(),
                             Adjustment = reader["Adjustment"].ToString(),
-                            ModelCode = reader["ModelCodeId"].ToString()
+                            ModelCode = reader["ModelCodeId"].ToString(),
+                            InspectorId = reader["InspectorId"].ToString()
                         });
                     }
                 }
@@ -86,13 +88,14 @@ namespace BarcodeCaseA.Repository
                 connection.Open();
 
                 // Pengecekan apakah data sudah ada
-                string checkQuery = "SELECT COUNT(*) FROM Packing_Results WHERE ModelCodeId = @ModelCode AND GlobalCodeId = @GlobalCodeId AND ModelNumber = @ModelNumber AND Adjustment = @Adjustment";
+                string checkQuery = "SELECT COUNT(*) FROM Packing_Results WHERE ModelCodeId = @ModelCode AND GlobalCodeId = @GlobalCodeId AND ModelNumber = @ModelNumber AND Adjustment = @Adjustment AND CONVERT(DATE, Date) = @Date";
                 using (SqlCommand checkCmd = new SqlCommand(checkQuery, connection))
                 {
                     checkCmd.Parameters.AddWithValue("@ModelCode", model.ModelCode);
                     checkCmd.Parameters.AddWithValue("@GlobalCodeId", model.SerialNumber);
                     checkCmd.Parameters.AddWithValue("@ModelNumber", model.ModelNumber);
                     checkCmd.Parameters.AddWithValue("@Adjustment", model.Adjustment);
+                    checkCmd.Parameters.AddWithValue("@Date", model.Date);
 
                     int count = (int)checkCmd.ExecuteScalar();
                     if (count > 0)
@@ -102,14 +105,15 @@ namespace BarcodeCaseA.Repository
                 }
 
                 // Memasukkan data baru
-                string insertQuery = "INSERT INTO Packing_Results (Date, ModelNumber, GlobalCodeId, Adjustment, ModelCodeId) VALUES (@Date, @ModelNumber, @SerialNumber, @Adjustment, @ModelCode)";
+                string insertQuery = "INSERT INTO Packing_Results (Date, ModelNumber, GlobalCodeId, Adjustment, ModelCodeId, InspectorId) VALUES (@Date, @ModelNumber, @GlobalCodeId, @Adjustment, @ModelCode, @InspectorId)";
                 using (SqlCommand insertCmd = new SqlCommand(insertQuery, connection))
                 {
                     insertCmd.Parameters.Add("@Date", SqlDbType.DateTime).Value = model.Date;
                     insertCmd.Parameters.Add("@ModelNumber", SqlDbType.VarChar).Value = model.ModelNumber;
-                    insertCmd.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = model.SerialNumber;
+                    insertCmd.Parameters.Add("@GlobalCodeId", SqlDbType.VarChar).Value = model.SerialNumber;
                     insertCmd.Parameters.Add("@Adjustment", SqlDbType.VarChar).Value = model.Adjustment;
                     insertCmd.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
+                    insertCmd.Parameters.Add("@InspectorId", SqlDbType.VarChar).Value = model.InspectorId;
                     insertCmd.ExecuteNonQuery();
                 }
             }

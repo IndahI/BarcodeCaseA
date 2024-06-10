@@ -13,6 +13,7 @@ namespace BarcodeCaseA.View
         //Variabel yang digunakan
         private Color defaultColor;
         private string latestReceivedData;
+        private string inspectorId;
         //private ToolTip toolTip;
         private bool openPort, indexSelect = false;
         private bool isInitializing;
@@ -65,6 +66,18 @@ namespace BarcodeCaseA.View
             set { statusText.Text = value; }
         }
 
+        public string inspector
+        {
+            get { return textBoxInspector.Text; }
+            set { textBoxInspector.Text = value; }
+        }
+
+        public string InspectorId
+        {
+            get { return inspectorId; }
+            set { inspectorId = value; }
+        }
+
         public DateTime SelectedDate => dtFromDate.Value;
 
         //event
@@ -112,7 +125,6 @@ namespace BarcodeCaseA.View
         {
             if (openPort && indexSelect)
             {
-                Judgement?.Invoke(sender, e);
                 return true;
             }
             else if (!indexSelect)
@@ -197,6 +209,7 @@ namespace BarcodeCaseA.View
                         e.SuppressKeyPress = true;
                         BeginInvoke(new Action(() =>
                         {
+                            Judgement?.Invoke(sender, e);
                             isKeyboardEnabled = false;
                         }));
                     }

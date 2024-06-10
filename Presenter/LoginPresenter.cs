@@ -31,7 +31,7 @@ namespace BarcodeCaseA.Presenter
             if (user?.Nik != null && user?.Password == password)
             {
                 _view.HideView();
-                IMainForm mainForm = new MainForm();
+                IMainForm mainForm = new MainForm(user);
                 (mainForm as Form)?.Show();
             }
             else

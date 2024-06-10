@@ -1,6 +1,6 @@
 using BarcodeCaseA.Model;
 using BarcodeCaseA.Presenter;
-using BarcodeCaseA.Properties;
+using BarcodeCaseA.Repository;
 using BarcodeCaseA.View;
 
 namespace BarcodeCaseA

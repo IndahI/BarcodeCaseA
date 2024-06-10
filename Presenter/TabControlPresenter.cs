@@ -7,6 +7,8 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BarcodeCaseA.Presenter
 {
@@ -19,15 +21,18 @@ namespace BarcodeCaseA.Presenter
         private BindingSource _dataBindingSource;
         private SerialPort serialPort;
         public string selectedName, message;
-        public TabControlPresenter(ITabControl view, IResultRepository resultRepository)
+        public TabControlPresenter(TabControlDataPresenter data)
         {
-            _view = view;
-            _resultRepository = resultRepository;
+            _view = data.View;
+            _resultRepository = data.ResultRepository;
             _model = new SetModel();
             _dataBindingSource = new BindingSource();
 
-            LoadDataGridView();
+            _view.InspectorId = data.User.Nik;
+            _view.inspector = data.User.Name;
 
+            LoadDataGridView();
+            
             _view.Judgement += judgement;
             _view.okClickedButton += startPort;
             _view.cnclClickedButton += stopPort;
@@ -35,6 +40,7 @@ namespace BarcodeCaseA.Presenter
             _view.SelectedModel += SelectedModel;
             _view.SearchFilter += SearchFilter;
         }
+
         public void ChangeTabPage(int index)
         {
             _view.SelectTabPageByIndex(index);
@@ -150,15 +156,14 @@ namespace BarcodeCaseA.Presenter
                 serialPort.Write("OK"); //Mengirim data ke serial
                 _view.judgementData = "OK";
                 _view.ChangePanelColor(Color.Green, 1500);
-                CreateModel();
             }
             else
             {
                 serialPort.Write("NG");//Mengirim data ke serial
                 _view.judgementData = "NG";
                 _view.ChangePanelColor(Color.Red, 3500);
-                CreateModel();
             }
+            CreateModel();
         }
 
         public void CreateModel()
@@ -172,7 +177,8 @@ namespace BarcodeCaseA.Presenter
                 ModelNumber = selectedName,
                 SerialNumber = _view.serialNumber,
                 Adjustment = _view.judgementData,
-                ModelCode = _model.GetModelCode(selectedName)
+                ModelCode = _model.GetModelCode(selectedName),
+                InspectorId = _view.InspectorId
             };
 
             var result = _resultRepository.addData(model);

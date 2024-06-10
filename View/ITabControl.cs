@@ -14,6 +14,8 @@ namespace BarcodeCaseA.View
         public string judgementData { get; set; }
         public string portName { get; set; }
         public string status { get; set; }
+        public string inspector { get; set; }
+        public string InspectorId { get; set; }
         DateTime SelectedDate { get; }
 
         event EventHandler Judgement;

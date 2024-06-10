@@ -1,13 +1,7 @@
 using BarcodeCaseA.Model;
 using BarcodeCaseA.Presenter;
 using BarcodeCaseA.Repository;
-using System.Drawing.Printing;
-using System;
-using System.Configuration;
-using System.Drawing;
-using System.Windows.Forms;
 using BarcodeCaseA.View;
-using BarcodeCaseA.Properties;
 
 namespace BarcodeCaseA
 {
@@ -15,8 +9,11 @@ namespace BarcodeCaseA
     {
         private TabControlPresenter tabControlPresenter;
         private readonly IResultRepository _addRepository;
-        public MainForm()
+        private LoginModel _user;
+
+        public MainForm(LoginModel user)
         {
+            _user = user;
             InitializeComponent();
             InitializeTabControl();
             HandleAction();
@@ -41,7 +38,7 @@ namespace BarcodeCaseA
                 btnScan.BackColor = Color.FromArgb(34, 40, 43);
             };
 
-            btnLogOut.Click += (sender,e) =>
+            btnLogOut.Click += (sender, e) =>
             {
                 tabControlPresenter.stopPort(this, e);
                 ILoginView loginView = new LoginView();
@@ -54,7 +51,8 @@ namespace BarcodeCaseA
         public void InitializeTabControl()
         {
             TabControlView tabControl = new TabControlView(); // Create the user control instance
-            tabControlPresenter = new TabControlPresenter(tabControl, new ResultRepository()); // Inisialisasi variabel instance
+            TabControlDataPresenter presenterData = new TabControlDataPresenter(tabControl, new ResultRepository(), _user);
+            tabControlPresenter = new TabControlPresenter(presenterData); // Inisialisasi variabel instance
             splitContainer1.Panel2.Controls.Add(tabControl);
             tabControl.Dock = DockStyle.Fill;
         }

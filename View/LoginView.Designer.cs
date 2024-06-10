@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginView));
             rdPanel1 = new Component.RDPanel();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             btnExit = new Button();
             btnLogin = new Button();
             panel2 = new Panel();
@@ -40,12 +42,10 @@
             panel3 = new Panel();
             label3 = new Label();
             label2 = new Label();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
             rdPanel1.SuspendLayout();
-            panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // rdPanel1
@@ -68,6 +68,27 @@
             rdPanel1.Name = "rdPanel1";
             rdPanel1.Size = new Size(432, 318);
             rdPanel1.TabIndex = 0;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(41, 164);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(28, 37);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(41, 104);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(28, 37);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // btnExit
             // 
@@ -180,33 +201,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Franklin Gothic Demi", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Verdana", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.Location = new Point(0, 9);
             label2.Name = "label2";
-            label2.Size = new Size(548, 61);
+            label2.Size = new Size(675, 59);
             label2.TabIndex = 0;
             label2.Text = "Barcode Scanner Case A";
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(41, 104);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(28, 37);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(41, 164);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(28, 37);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
             // 
             // LoginView
             // 
@@ -222,10 +222,10 @@
             FormClosed += LoginView_FormClosed;
             rdPanel1.ResumeLayout(false);
             rdPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 

@@ -30,6 +30,8 @@
         {
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            textBoxInspector = new TextBox();
+            label7 = new Label();
             statusText = new TextBox();
             selectIdText = new TextBox();
             label6 = new Label();
@@ -74,6 +76,8 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(textBoxInspector);
+            tabPage1.Controls.Add(label7);
             tabPage1.Controls.Add(statusText);
             tabPage1.Controls.Add(selectIdText);
             tabPage1.Controls.Add(label6);
@@ -98,15 +102,36 @@
             tabPage1.Text = "tabPage1";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // textBoxInspector
+            // 
+            textBoxInspector.BorderStyle = BorderStyle.None;
+            textBoxInspector.Font = new Font("Franklin Gothic Medium", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            textBoxInspector.Location = new Point(235, 229);
+            textBoxInspector.Multiline = true;
+            textBoxInspector.Name = "textBoxInspector";
+            textBoxInspector.ReadOnly = true;
+            textBoxInspector.Size = new Size(231, 23);
+            textBoxInspector.TabIndex = 19;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Franklin Gothic Medium", 14.25F);
+            label7.Location = new Point(60, 229);
+            label7.Name = "label7";
+            label7.Size = new Size(103, 24);
+            label7.TabIndex = 18;
+            label7.Text = "INSPECTOR";
+            // 
             // statusText
             // 
             statusText.BorderStyle = BorderStyle.None;
             statusText.Font = new Font("Franklin Gothic Medium", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            statusText.Location = new Point(235, 234);
+            statusText.Location = new Point(235, 280);
             statusText.Multiline = true;
             statusText.Name = "statusText";
             statusText.ReadOnly = true;
-            statusText.Size = new Size(231, 23);
+            statusText.Size = new Size(231, 111);
             statusText.TabIndex = 17;
             // 
             // selectIdText
@@ -123,7 +148,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Franklin Gothic Medium", 14.25F);
-            label6.Location = new Point(60, 234);
+            label6.Location = new Point(60, 280);
             label6.Name = "label6";
             label6.Size = new Size(72, 24);
             label6.TabIndex = 14;
@@ -150,7 +175,7 @@
             btnRefresh.FlatStyle = FlatStyle.Flat;
             btnRefresh.Font = new Font("Franklin Gothic Demi", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRefresh.ForeColor = Color.White;
-            btnRefresh.Location = new Point(69, 404);
+            btnRefresh.Location = new Point(61, 518);
             btnRefresh.Name = "btnRefresh";
             btnRefresh.Size = new Size(88, 34);
             btnRefresh.TabIndex = 12;
@@ -187,7 +212,7 @@
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Franklin Gothic Demi", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnClose.ForeColor = Color.White;
-            btnClose.Location = new Point(420, 352);
+            btnClose.Location = new Point(412, 466);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(92, 34);
             btnClose.TabIndex = 10;
@@ -201,7 +226,7 @@
             btnOpen.FlatStyle = FlatStyle.Flat;
             btnOpen.Font = new Font("Franklin Gothic Demi", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnOpen.ForeColor = Color.White;
-            btnOpen.Location = new Point(299, 352);
+            btnOpen.Location = new Point(291, 466);
             btnOpen.Name = "btnOpen";
             btnOpen.Size = new Size(88, 34);
             btnOpen.TabIndex = 9;
@@ -211,7 +236,7 @@
             // portBox
             // 
             portBox.FormattingEnabled = true;
-            portBox.Location = new Point(69, 360);
+            portBox.Location = new Point(61, 474);
             portBox.Name = "portBox";
             portBox.Size = new Size(184, 23);
             portBox.TabIndex = 8;
@@ -250,7 +275,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Franklin Gothic Medium", 14.25F);
-            label4.Location = new Point(63, 336);
+            label4.Location = new Point(55, 450);
             label4.Name = "label4";
             label4.Size = new Size(134, 24);
             label4.TabIndex = 3;
@@ -402,5 +427,7 @@
         private Label label6;
         private TextBox selectIdText;
         private TextBox statusText;
+        private TextBox textBoxInspector;
+        private Label label7;
     }
 }
