@@ -53,6 +53,11 @@ namespace BarcodeCaseA.Presenter
             _view.SetDefectListBindingSource(_dataBindingSource);
         }
 
+        private void UpdateScanBox(string message) 
+        {
+            _view.scanData = message;
+        }
+
         private void LoadDataGridView()
         {
             _view.SetDefectListBindingSource(_dataBindingSource);
@@ -175,7 +180,7 @@ namespace BarcodeCaseA.Presenter
             {
                 Date = formattedDate,
                 ModelNumber = selectedName,
-                SerialNumber = _view.serialNumber,
+                GlobalCodeId = _view.serialNumber,
                 Adjustment = _view.judgementData,
                 ModelCode = _model.GetModelCode(selectedName),
                 InspectorId = _view.InspectorId

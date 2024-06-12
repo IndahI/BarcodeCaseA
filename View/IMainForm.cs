@@ -8,5 +8,6 @@ namespace BarcodeCaseA.View
 {
     public interface IMainForm
     {
+        void Show();
     }
 }

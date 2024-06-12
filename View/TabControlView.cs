@@ -14,6 +14,7 @@ namespace BarcodeCaseA.View
         private Color defaultColor;
         private string latestReceivedData;
         private string inspectorId;
+        private TCPConnection connection;
         //private ToolTip toolTip;
         private bool openPort, indexSelect = false;
         private bool isInitializing;
@@ -92,13 +93,33 @@ namespace BarcodeCaseA.View
         {
             statusText.Text = message;
         }
-        private void TabControl_Load(object sender, EventArgs e)
+        private async void TabControl_Load(object sender, EventArgs e)
         {
             isInitializing = true;
+            timer1.Start();
             //toolTip.SetToolTip(label5, "Copyright © 2024 PENS & UNSURYA");
             LoadSetup?.Invoke(sender, e);
             loadSetModel();
             isInitializing = false;
+            connection = new TCPConnection(UpdateScanBox);
+            await connection.ConnectToServerAsync();
+        }
+
+        private void UpdateScanBox(string message)
+        {
+            // Invoke UI updates on the UI thread
+            if (scanBox.InvokeRequired)
+            {
+                scanBox.Invoke((MethodInvoker)(() => UpdateScanBox(message)));
+            }
+            else
+            {
+                scanBox.Text = message;
+            }
+            if (CheckVariable())
+            {
+                Judgement?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void loadSetModel()
@@ -121,7 +142,7 @@ namespace BarcodeCaseA.View
             dataGridView1.DataSource = model;
         }
 
-        private bool CheckVariable(object sender, KeyEventArgs e)
+        private bool CheckVariable()
         {
             if (openPort && indexSelect)
             {
@@ -160,7 +181,10 @@ namespace BarcodeCaseA.View
             btnOpen.Click += (sender, e) =>
             {
                 okClickedButton?.Invoke(sender, e);
-                openPort = true;
+                if (portBox.Text != "")
+                {
+                    openPort = true;
+                }
                 scanBox.Focus();
             };
 
@@ -190,8 +214,22 @@ namespace BarcodeCaseA.View
             dataGridView1.RowPostPaint += (sender, e) =>
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
-                row.Cells["No"].Value = (e.RowIndex + 1).ToString();
+                int totalRows = dataGridView1.Rows.Count;
+                row.Cells["No"].Value = (totalRows - e.RowIndex).ToString();
                 row.Cells["No"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            };
+
+            dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 18, FontStyle.Bold);
+            dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridView1.ColumnHeadersHeight = 40;
+
+            dataGridView1.DefaultCellStyle.Font = new Font("Arial", 16);
+            dataGridView1.RowTemplate.Height = 50;
+
+            timer1.Tick += delegate
+            {
+                timeHeader.Text = DateTime.Now.ToLongTimeString();
+                DateHeader.Text = DateTime.Now.ToLongDateString();
             };
         }
         //Mengubah nilai enumerasi Keys ke representasi string yang sesuai.
@@ -200,7 +238,7 @@ namespace BarcodeCaseA.View
         //Handle scanning data 
         private void scanBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (CheckVariable(this, e))
+            if (CheckVariable())
             {
                 if (isKeyboardEnabled)
                 {
@@ -264,18 +302,19 @@ namespace BarcodeCaseA.View
             {
                 // Mengubah warna background form 
                 statusText.BackColor = newColor;
-                //ChangeLabelsFontColor(tabPage1, Color.White);
+                if (newColor == Color.Green) 
+                { ChangeLabelsFontColor(Color.White); }
 
                 // Mengatur timer untuk mengembalikan warna kembali ke default setelah waktu tertentu
                 var revertTimer = new System.Windows.Forms.Timer
                 {
                     Interval = timerInterval // menggunakan parameter timerInterval
                 };
-                revertTimer.Start(); // Timer menyal
+                revertTimer.Start(); // Timer menyala
                 revertTimer.Tick += (sender, e) =>
                 {
-                    //ChangeLabelsFontColor(tabPage1, SystemColors.ControlText);
-                    statusText.BackColor = SystemColors.Control; // Mengembalikan ke warna default
+                    ChangeLabelsFontColor(SystemColors.WindowText);
+                    statusText.BackColor = Color.FromArgb(220, 225, 230); // Mengembalikan ke warna default
                     statusText.Text = "";
                     revertTimer.Stop(); // Timer mati
                    
@@ -283,26 +322,12 @@ namespace BarcodeCaseA.View
             }));
         }
 
-        /***
-        private void ChangeLabelsFontColor(TabPage tabPage, Color newColor)
+        
+        private void ChangeLabelsFontColor(Color newColor)
         {
-            // Loop through each control in the TabPage
-            foreach (Control control in tabPage.Controls)
-            {
-                // Loop through each control in the FlowLayoutPanel
-                foreach (Control innerControl in tabPage.Controls)
-                {
-                    // Check if the inner control is a Label
-                    if (innerControl is Label)
-                    {
-                        Label label = (Label)innerControl;
-                        // Change the font color of the label
-                        label.ForeColor = newColor;
-                    }
-                }
-            }
+            statusText.ForeColor = newColor;
         }
-        ***/
+        
     }
 }
 

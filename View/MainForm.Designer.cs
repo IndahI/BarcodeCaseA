@@ -37,6 +37,7 @@
             btnLogOut = new Button();
             btnScan = new Button();
             btnRecord = new Button();
+            btnSetting = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -46,35 +47,35 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(54, 69, 79);
+            panel1.BackColor = Color.FromArgb(27, 140, 124);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(958, 89);
+            panel1.Size = new Size(1243, 89);
             panel1.TabIndex = 0;
             // 
             // label2
             // 
             label2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label2.AutoSize = true;
-            label2.Font = new Font("Franklin Gothic Medium", 21.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Helvetica", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(564, 31);
+            label2.Location = new Point(693, 24);
             label2.Name = "label2";
-            label2.Size = new Size(391, 37);
+            label2.Size = new Size(538, 42);
             label2.TabIndex = 1;
             label2.Text = "Laundry System Business Unit";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Franklin Gothic Demi", 26.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Helvetica", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(12, 26);
+            label1.Location = new Point(0, 17);
             label1.Name = "label1";
-            label1.Size = new Size(398, 41);
+            label1.Size = new Size(598, 57);
             label1.TabIndex = 0;
             label1.Text = "Barcode Scanner Case A";
             // 
@@ -87,15 +88,16 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(tableLayoutPanel1);
-            splitContainer1.Size = new Size(958, 361);
-            splitContainer1.SplitterDistance = 71;
+            splitContainer1.Size = new Size(1243, 361);
+            splitContainer1.SplitterDistance = 92;
             splitContainer1.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(34, 40, 43);
+            tableLayoutPanel1.BackColor = Color.FromArgb(27, 140, 124);
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(btnSetting, 0, 3);
             tableLayoutPanel1.Controls.Add(btnLogOut, 0, 7);
             tableLayoutPanel1.Controls.Add(btnScan, 0, 1);
             tableLayoutPanel1.Controls.Add(btnRecord, 0, 2);
@@ -111,11 +113,13 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2857141F));
-            tableLayoutPanel1.Size = new Size(71, 361);
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.Size = new Size(92, 361);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnLogOut
             // 
+            btnLogOut.BackColor = Color.Red;
             btnLogOut.Dock = DockStyle.Fill;
             btnLogOut.FlatAppearance.BorderSize = 0;
             btnLogOut.FlatStyle = FlatStyle.Flat;
@@ -124,11 +128,11 @@
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
             btnLogOut.Location = new Point(3, 317);
             btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new Size(65, 41);
+            btnLogOut.Size = new Size(86, 41);
             btnLogOut.TabIndex = 2;
             btnLogOut.Text = "Log Out";
             btnLogOut.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnLogOut.UseVisualStyleBackColor = true;
+            btnLogOut.UseVisualStyleBackColor = false;
             // 
             // btnScan
             // 
@@ -140,7 +144,7 @@
             btnScan.Image = (Image)resources.GetObject("btnScan.Image");
             btnScan.Location = new Point(3, 53);
             btnScan.Name = "btnScan";
-            btnScan.Size = new Size(65, 38);
+            btnScan.Size = new Size(86, 38);
             btnScan.TabIndex = 1;
             btnScan.Text = "Scan";
             btnScan.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -156,24 +160,39 @@
             btnRecord.Image = (Image)resources.GetObject("btnRecord.Image");
             btnRecord.Location = new Point(3, 97);
             btnRecord.Name = "btnRecord";
-            btnRecord.Size = new Size(65, 38);
+            btnRecord.Size = new Size(86, 38);
             btnRecord.TabIndex = 0;
             btnRecord.Text = "Record";
             btnRecord.TextImageRelation = TextImageRelation.ImageAboveText;
             btnRecord.UseVisualStyleBackColor = true;
             // 
+            // btnSetting
+            // 
+            btnSetting.Dock = DockStyle.Fill;
+            btnSetting.FlatAppearance.BorderSize = 0;
+            btnSetting.FlatStyle = FlatStyle.Flat;
+            btnSetting.Font = new Font("Franklin Gothic Medium", 14.25F);
+            btnSetting.ForeColor = Color.White;
+            btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
+            btnSetting.Location = new Point(3, 141);
+            btnSetting.Name = "btnSetting";
+            btnSetting.Size = new Size(86, 38);
+            btnSetting.TabIndex = 3;
+            btnSetting.Text = "Setting";
+            btnSetting.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnSetting.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(958, 450);
+            ClientSize = new Size(1243, 450);
             Controls.Add(splitContainer1);
             Controls.Add(panel1);
             Name = "MainForm";
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
             FormClosed += MainForm_FormClosed;
-            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
@@ -193,5 +212,6 @@
         private Button btnLogOut;
         private Button btnScan;
         private Button btnRecord;
+        private Button btnSetting;
     }
 }

@@ -22,27 +22,39 @@ namespace BarcodeCaseA.Repository
         public IEnumerable<CaseModel> GetAll()
         {
             List<CaseModel> models = new List<CaseModel>();
-            string query = "SELECT * FROM Packing_Results WHERE CONVERT(DATE, date) = CONVERT(DATE, GETDATE()) ORDER BY Id DESC;";
+            string query = @"
+                                SELECT 
+                                    PR.Id,
+                                    PR.Date, 
+                                    PR.ModelNumber, 
+                                    PR.GlobalCodeId, 
+                                    PR.Adjustment,
+                                    PR.ModelCodeId, 
+                                    U.Name AS InspectorId
+                                FROM Packing_Results PR
+                                INNER JOIN LSBU_Common.dbo.Users U ON PR.InspectorId = U.NikId
+                                WHERE CONVERT(DATE, PR.Date) = CONVERT(DATE, GETDATE()) 
+                                ORDER BY PR.Id DESC;";
 
             using (SqlConnection connection = new SqlConnection(DBConnection_Packing))
             using (SqlCommand command = new SqlCommand(query, connection))
             {
                 connection.Open();
-
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        models.Add(new CaseModel
+                        CaseModel caseModel = new CaseModel
                         {
                             Id = reader["Id"].ToString(),
                             Date = reader["Date"].ToString(),
                             ModelNumber = reader["ModelNumber"].ToString(),
-                            SerialNumber = reader["GlobalCodeId"].ToString(),
+                            GlobalCodeId = reader["GlobalCodeId"].ToString(),
                             Adjustment = reader["Adjustment"].ToString(),
                             ModelCode = reader["ModelCodeId"].ToString(),
-                            InspectorId = reader["InspectorId"].ToString()
-                        });
+                            Inspector = reader["InspectorId"].ToString()
+                        };
+                        models.Add(caseModel);
                     }
                 }
             }
@@ -52,7 +64,19 @@ namespace BarcodeCaseA.Repository
         public IEnumerable<CaseModel> GetFilter(DateTime selectedDate)
         {
             List<CaseModel> results = new List<CaseModel>();
-            string query = "SELECT * FROM Packing_Results WHERE CAST(Date AS DATE) = @SelectedDate ORDER BY Id DESC";
+            string query = @"
+                            SELECT 
+                                PR.Id,
+                                PR.Date, 
+                                PR.ModelNumber, 
+                                PR.GlobalCodeId, 
+                                PR.Adjustment,
+                                PR.ModelCodeId, 
+                                U.Name AS InspectorId
+                            FROM Packing_Results PR
+                            INNER JOIN LSBU_Common.dbo.Users U ON PR.InspectorId = U.NikId
+                            WHERE CAST(PR.Date AS DATE) = @SelectedDate
+                            ORDER BY PR.Id DESC;";
 
             using (SqlConnection connection = new SqlConnection(DBConnection_Packing))
             using (SqlCommand command = new SqlCommand(query, connection))
@@ -69,10 +93,10 @@ namespace BarcodeCaseA.Repository
                             Id = reader["Id"].ToString(),
                             Date = reader["Date"].ToString(),
                             ModelNumber = reader["ModelNumber"].ToString(),
-                            SerialNumber = reader["GlobalCodeId"].ToString(),
+                            GlobalCodeId = reader["GlobalCodeId"].ToString(),
                             Adjustment = reader["Adjustment"].ToString(),
                             ModelCode = reader["ModelCodeId"].ToString(),
-                            InspectorId = reader["InspectorId"].ToString()
+                            Inspector = reader["InspectorId"].ToString()
                         });
                     }
                 }
@@ -92,7 +116,7 @@ namespace BarcodeCaseA.Repository
                 using (SqlCommand checkCmd = new SqlCommand(checkQuery, connection))
                 {
                     checkCmd.Parameters.AddWithValue("@ModelCode", model.ModelCode);
-                    checkCmd.Parameters.AddWithValue("@GlobalCodeId", model.SerialNumber);
+                    checkCmd.Parameters.AddWithValue("@GlobalCodeId", model.GlobalCodeId);
                     checkCmd.Parameters.AddWithValue("@ModelNumber", model.ModelNumber);
                     checkCmd.Parameters.AddWithValue("@Adjustment", model.Adjustment);
                     checkCmd.Parameters.AddWithValue("@Date", model.Date);
@@ -110,7 +134,7 @@ namespace BarcodeCaseA.Repository
                 {
                     insertCmd.Parameters.Add("@Date", SqlDbType.DateTime).Value = model.Date;
                     insertCmd.Parameters.Add("@ModelNumber", SqlDbType.VarChar).Value = model.ModelNumber;
-                    insertCmd.Parameters.Add("@GlobalCodeId", SqlDbType.VarChar).Value = model.SerialNumber;
+                    insertCmd.Parameters.Add("@GlobalCodeId", SqlDbType.VarChar).Value = model.GlobalCodeId;
                     insertCmd.Parameters.Add("@Adjustment", SqlDbType.VarChar).Value = model.Adjustment;
                     insertCmd.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
                     insertCmd.Parameters.Add("@InspectorId", SqlDbType.VarChar).Value = model.InspectorId;
@@ -119,6 +143,8 @@ namespace BarcodeCaseA.Repository
             }
             return (true, null);
         }
+  
+            
 
         /***
         public void addData(dynamic model)
@@ -141,3 +167,4 @@ namespace BarcodeCaseA.Repository
         ***/
     }
 }
+

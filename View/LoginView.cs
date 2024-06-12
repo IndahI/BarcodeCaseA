@@ -12,6 +12,7 @@ namespace BarcodeCaseA.View
 {
     public partial class LoginView : Form, ILoginView
     {
+        private bool isClickedOnce = true;
         public LoginView()
         {
             InitializeComponent();
@@ -57,6 +58,22 @@ namespace BarcodeCaseA.View
             btnExit.Click += delegate
             {
                 Application.Exit();
+            };
+
+            hiddenPass.Click += delegate
+            {
+                if (isClickedOnce)
+                {
+                    hiddenPass.Image = Properties.Resources.hidden;
+                    textBoxPassword.PasswordChar = '\0';
+                    isClickedOnce = false;
+                }
+                else
+                {
+                    hiddenPass.Image = Properties.Resources.eye;
+                    textBoxPassword.PasswordChar = '*';
+                    isClickedOnce = true;
+                }
             };
         }
 

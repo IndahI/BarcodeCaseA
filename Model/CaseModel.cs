@@ -14,10 +14,11 @@ namespace BarcodeCaseA.Model
         public string id;
         public string date;
         public string modelNumber;
-        public string serialNumber;
+        public string globalCodeId;
         public string adjustment;
         public string modelCode;
         public string inspectorId;
+        public string inspector;
 
         // Properties
         [DisplayName("ID")]
@@ -48,11 +49,11 @@ namespace BarcodeCaseA.Model
             set => modelNumber = value;
         }
 
-        [DisplayName("Serial Number")]
-        public string SerialNumber
+        [DisplayName("GlobalCodeId")]
+        public string GlobalCodeId
         {
-            get => serialNumber;
-            set => serialNumber = value;
+            get => globalCodeId;
+            set => globalCodeId = value;
         }
 
         [DisplayName("Adjustment")]
@@ -63,10 +64,19 @@ namespace BarcodeCaseA.Model
         }
 
         [DisplayName("InspectorId")]
+        [Browsable(false)]
         public string InspectorId
         {
             get => inspectorId;
             set => inspectorId = value;
+        }
+
+        [DisplayName("Inspector")]
+        //[Browsable(false)]
+        public string Inspector
+        {
+            get => inspector;
+            set => inspector = value;
         }
     }
 }
