@@ -14,11 +14,14 @@ namespace BarcodeCaseA.Presenter
         public IResultRepository ResultRepository { get; }
         public LoginModel User { get; }
 
-        public TabControlDataPresenter(ITabControl view, IResultRepository resultRepository, LoginModel user)
+        public PortModel PortModel { get; }
+
+        public TabControlDataPresenter(ITabControl view, IResultRepository resultRepository, LoginModel user, PortModel port)
         {
             View = view;
             ResultRepository = resultRepository;
             User = user;
+            PortModel = port;
         }
     }
 }

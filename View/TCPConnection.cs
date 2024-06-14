@@ -14,6 +14,8 @@ namespace BarcodeCaseA.View
     public class TCPConnection
     {
         private Action<string> updateUiCallback;
+        private TcpClient client;
+        private NetworkStream stream;
 
         public TCPConnection(Action<string> updateUiCallback) // Added updateUiCallback2 as a parameter
         {
@@ -25,33 +27,31 @@ namespace BarcodeCaseA.View
             string serverIp = Settings.Default.ServerIP; // Retrieve IP from user settings
             int port = Settings.Default.Port;
 
-            using (TcpClient client = new TcpClient())
-            {
-                try
-                {
-                    await client.ConnectAsync(serverIp, port);
-                    //await SendMessageToServerAsync(client, "Hello from client!");
-
-                    await HandleServerResponseAsync(client);
-                }
-                catch (Exception ex)
-                {
-                    //updateUiCallback?.Invoke($"Error connecting to server: {ex.Message}");
-                }
-            }
-        }
-
-        private async Task SendMessageToServerAsync(TcpClient client, string message)
-        {
+            client = new TcpClient();
             try
             {
-                NetworkStream stream = client.GetStream();
-                byte[] data = Encoding.UTF8.GetBytes(message);
-                await stream.WriteAsync(data, 0, data.Length);
+                await client.ConnectAsync(serverIp, port);
+                //await SendMessageToServerAsync(client, "Hello from client!");
+
+                await HandleServerResponseAsync(client);
             }
             catch (Exception ex)
             {
-                //updateUiCallback?.Invoke($"Error sending message to server: {ex.Message}");
+                //updateUiCallback?.Invoke($"Error connecting to server: {ex.Message}");
+            }
+        }
+
+        public void CloseConnection()
+        {
+            if (stream != null)
+            {
+                stream.Close();
+                stream = null;
+            }
+            if (client != null)
+            {
+                client.Close();
+                client = null;
             }
         }
 
@@ -59,7 +59,7 @@ namespace BarcodeCaseA.View
         {
             try
             {
-                NetworkStream stream = client.GetStream();
+                stream = client.GetStream();
                 byte[] buffer = new byte[1024];
                 string incomingData = "";
 

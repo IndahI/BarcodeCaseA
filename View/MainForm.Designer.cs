@@ -34,10 +34,10 @@
             label1 = new Label();
             splitContainer1 = new SplitContainer();
             tableLayoutPanel1 = new TableLayoutPanel();
+            btnSetting = new Button();
             btnLogOut = new Button();
             btnScan = new Button();
             btnRecord = new Button();
-            btnSetting = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -117,6 +117,22 @@
             tableLayoutPanel1.Size = new Size(92, 361);
             tableLayoutPanel1.TabIndex = 0;
             // 
+            // btnSetting
+            // 
+            btnSetting.Dock = DockStyle.Fill;
+            btnSetting.FlatAppearance.BorderSize = 0;
+            btnSetting.FlatStyle = FlatStyle.Flat;
+            btnSetting.Font = new Font("Franklin Gothic Medium", 14.25F);
+            btnSetting.ForeColor = Color.White;
+            btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
+            btnSetting.Location = new Point(3, 141);
+            btnSetting.Name = "btnSetting";
+            btnSetting.Size = new Size(86, 38);
+            btnSetting.TabIndex = 3;
+            btnSetting.Text = "Setting";
+            btnSetting.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnSetting.UseVisualStyleBackColor = true;
+            // 
             // btnLogOut
             // 
             btnLogOut.BackColor = Color.Red;
@@ -166,22 +182,6 @@
             btnRecord.TextImageRelation = TextImageRelation.ImageAboveText;
             btnRecord.UseVisualStyleBackColor = true;
             // 
-            // btnSetting
-            // 
-            btnSetting.Dock = DockStyle.Fill;
-            btnSetting.FlatAppearance.BorderSize = 0;
-            btnSetting.FlatStyle = FlatStyle.Flat;
-            btnSetting.Font = new Font("Franklin Gothic Medium", 14.25F);
-            btnSetting.ForeColor = Color.White;
-            btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
-            btnSetting.Location = new Point(3, 141);
-            btnSetting.Name = "btnSetting";
-            btnSetting.Size = new Size(86, 38);
-            btnSetting.TabIndex = 3;
-            btnSetting.Text = "Setting";
-            btnSetting.TextImageRelation = TextImageRelation.ImageAboveText;
-            btnSetting.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -189,6 +189,7 @@
             ClientSize = new Size(1243, 450);
             Controls.Add(splitContainer1);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             Text = "Form1";
             WindowState = FormWindowState.Maximized;

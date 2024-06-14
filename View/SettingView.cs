@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace BarcodeCaseA.View
 {
     public partial class SettingView : Form, ISettingView
     {
+        private SerialPort serialPort;
         public SettingView()
         {
             InitializeComponent();
@@ -31,10 +33,26 @@ namespace BarcodeCaseA.View
             set { textBoxPort.Text = value; }
         }
 
+        public string portName
+        {
+            get { return portBox.Text; }
+            set { portBox.Text = value; }
+        }
+
         public event EventHandler SaveIPSettings;
         public event EventHandler SavePortSettings;
         public event EventHandler LoadIP;
         public event EventHandler LoadPort;
+        public event EventHandler okButton;
+        public event EventHandler cnclButton;
+        public event EventHandler getPortName;
+
+        private void loadSetModel()
+        {
+            portBox.Items.Clear();
+            string[] ports = SerialPort.GetPortNames();
+            portBox.Items.AddRange(ports);
+        }
 
         public void DisplayIP(string IPaddress)
         {
@@ -48,6 +66,27 @@ namespace BarcodeCaseA.View
 
         private void HandleAction()
         {
+            btnOpen.Click += (sender, e) =>
+            {
+                if (portBox.Text != "")
+                {
+                    okButton?.Invoke(sender, e);
+                    //openPort = true;
+                }
+            };
+
+            btnClose.Click += (sender, e) =>
+            {
+                cnclButton?.Invoke(sender, e);
+                //openPort = false;
+            };
+
+            btnRefresh.Click += (sender, e) =>
+            {
+                portBox.Text = "";
+                loadSetModel();
+            };
+
             textBoxIP.TextChanged += (sender, e) =>
             {
                 SaveIPSettings?.Invoke(this, EventArgs.Empty);
@@ -83,6 +122,8 @@ namespace BarcodeCaseA.View
 
         private void SettingView_Load(object sender, EventArgs e)
         {
+            loadSetModel();
+            getPortName?.Invoke(this, EventArgs.Empty);
             LoadIP?.Invoke(this, EventArgs.Empty);
             LoadPort?.Invoke(this, EventArgs.Empty);
         }

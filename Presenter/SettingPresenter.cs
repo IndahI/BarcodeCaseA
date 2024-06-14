@@ -12,15 +12,37 @@ namespace BarcodeCaseA.Presenter
     {
         private readonly ISettingView _view;
         private readonly SettingModel _model;
-        public SettingPresenter(ISettingView view, SettingModel model)
+        private readonly PortModel _port;
+        public SettingPresenter(ISettingView view, SettingModel model, PortModel port)
         {
             _view = view;
             _model = model;
+            _port = port;
 
             _view.SaveIPSettings += SaveIPSettings;
             _view.SavePortSettings += SavePortSettings;
             _view.LoadIP += View_LoadIP;
             _view.LoadPort += View_LoadPort;
+            _view.okButton += OkButton;
+            _view.cnclButton += CnclButton;
+            _view.getPortName += GetPortName;
+        }
+
+        private void GetPortName(object sender, EventArgs e)
+        {
+            _view.portName = _port.PortName;
+        }
+
+        private void CnclButton(object sender, EventArgs e)
+        {
+            _port.PortName = _view.portName;
+            _port.OpenPort = false;
+        }
+
+        private void OkButton(object sender, EventArgs e)
+        {
+            _port.PortName = _view.portName;
+            _port.OpenPort = true;
         }
 
         private void View_LoadIP(object sender, EventArgs e)

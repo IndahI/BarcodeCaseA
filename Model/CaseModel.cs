@@ -19,6 +19,7 @@ namespace BarcodeCaseA.Model
         public string modelCode;
         public string inspectorId;
         public string inspector;
+        public string scanResult;
 
         // Properties
         [DisplayName("ID")]
@@ -54,6 +55,13 @@ namespace BarcodeCaseA.Model
         {
             get => globalCodeId;
             set => globalCodeId = value;
+        }
+
+        [DisplayName("Scan Result")]
+        public string ScanResult
+        {
+            get => scanResult;
+            set => scanResult = value;
         }
 
         [DisplayName("Adjustment")]

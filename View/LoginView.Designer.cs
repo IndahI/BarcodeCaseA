@@ -30,11 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginView));
             rdPanel1 = new Component.RDPanel();
+            panel2 = new Panel();
             btnExit = new Component.RDButton();
             btnLogin = new Component.RDButton();
             pictureBox2 = new PictureBox();
             pictureBox1 = new PictureBox();
-            panel2 = new Panel();
             panel1 = new Panel();
             textBoxNik = new TextBox();
             label1 = new Label();
@@ -71,6 +71,15 @@
             rdPanel1.Name = "rdPanel1";
             rdPanel1.Size = new Size(432, 318);
             rdPanel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.None;
+            panel2.BackColor = SystemColors.ControlDark;
+            panel2.Location = new Point(84, 194);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(303, 2);
+            panel2.TabIndex = 3;
             // 
             // btnExit
             // 
@@ -130,15 +139,6 @@
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
-            // 
-            // panel2
-            // 
-            panel2.Anchor = AnchorStyles.None;
-            panel2.BackColor = SystemColors.ControlDark;
-            panel2.Location = new Point(84, 194);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(303, 2);
-            panel2.TabIndex = 3;
             // 
             // panel1
             // 
@@ -240,6 +240,7 @@
             ClientSize = new Size(1256, 535);
             Controls.Add(panel3);
             Controls.Add(rdPanel1);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "LoginView";
             Text = "LoginView";
             WindowState = FormWindowState.Maximized;

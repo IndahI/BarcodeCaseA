@@ -4,11 +4,7 @@ using BarcodeCaseA.View;
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Windows.Forms;
 
 namespace BarcodeCaseA.Presenter
 {
@@ -16,15 +12,18 @@ namespace BarcodeCaseA.Presenter
     {
         private readonly ITabControl _view;
         private readonly SetModel _model;
+        private readonly PortModel _port;
         private IEnumerable<CaseModel> _casemodel;
         private readonly IResultRepository _resultRepository;
         private BindingSource _dataBindingSource;
         private SerialPort serialPort;
         public string selectedName, message;
+
         public TabControlPresenter(TabControlDataPresenter data)
         {
             _view = data.View;
             _resultRepository = data.ResultRepository;
+            _port = data.PortModel;
             _model = new SetModel();
             _dataBindingSource = new BindingSource();
 
@@ -32,13 +31,20 @@ namespace BarcodeCaseA.Presenter
             _view.inspector = data.User.Name;
 
             LoadDataGridView();
-            
+
+            _port.PortOpen += startPort;
+            _port.PortClose += stopPort;
+
             _view.Judgement += judgement;
-            _view.okClickedButton += startPort;
-            _view.cnclClickedButton += stopPort;
             _view.LoadSetup += LoadSetup;
             _view.SelectedModel += SelectedModel;
             _view.SearchFilter += SearchFilter;
+            _view.GetOpenPort += GetOpenPort;
+        }
+
+        public void GetOpenPort(object sender, EventArgs e)
+        {
+            _view.openPort = _port.OpenPort;
         }
 
         public void ChangeTabPage(int index)
@@ -53,14 +59,10 @@ namespace BarcodeCaseA.Presenter
             _view.SetDefectListBindingSource(_dataBindingSource);
         }
 
-        private void UpdateScanBox(string message) 
-        {
-            _view.scanData = message;
-        }
-
         private void LoadDataGridView()
         {
             _view.SetDefectListBindingSource(_dataBindingSource);
+            _view.SetDefectListBindingSource2(_dataBindingSource);
             _casemodel = _resultRepository.GetAll();
             _dataBindingSource.DataSource = _casemodel;
         }
@@ -87,7 +89,7 @@ namespace BarcodeCaseA.Presenter
         {
             serialPort = new SerialPort
             {
-                PortName =_view.portName,
+                PortName = _port.PortName,
                 BaudRate = 115200,
                 Parity = Parity.None,
                 StopBits = StopBits.One,
@@ -96,17 +98,17 @@ namespace BarcodeCaseA.Presenter
             };
         }
 
-        private void startPort (object sender, EventArgs e)
+        private void startPort(object sender, EventArgs e)
         {
-            if (_view.portName != "")
+            if (!string.IsNullOrEmpty(_port.PortName))
             {
-                if (serialPort == null)
+                if (serialPort == null || !serialPort.IsOpen)
                 {
                     try
                     {
                         InitializeSerialPort();
                         serialPort.Open();
-                        message = "Connected to serial port";
+                        message = "Port serial tersambung";
                         _view.StatusMessage(message);
                         _view.ChangeTextBoxColor(Color.Green, 1000);
                     }
@@ -115,11 +117,11 @@ namespace BarcodeCaseA.Presenter
                         message = "Error opening serial port: \n" + ex.Message;
                         _view.StatusMessage(message);
                         _view.ChangeTextBoxColor(Color.Yellow, 3500);
-                    };
+                    }
                 }
                 else
                 {
-                    message = " Port telah terbuka";
+                    message = "Port telah terbuka";
                     _view.StatusMessage(message);
                     _view.ChangeTextBoxColor(Color.Yellow, 3500);
                 }
@@ -129,25 +131,22 @@ namespace BarcodeCaseA.Presenter
                 message = "Port belum dipilih";
                 _view.StatusMessage(message);
                 _view.ChangeTextBoxColor(Color.Yellow, 3500);
-            } 
+            }
         }
 
         public void stopPort(object sender, EventArgs e)
         {
-            if (serialPort != null)
+            if (serialPort != null && serialPort.IsOpen)
             {
-                if (serialPort.IsOpen)
-                {
-                    serialPort.Close();
-                    message = "Disconnected from serial port";
-                    _view.StatusMessage(message);
-                    _view.ChangeTextBoxColor(Color.Green, 1000);
-                    _view.portName = "";
-                }
+                serialPort.Close();
+                message = "Port serial diputus";
+                _view.StatusMessage(message);
+                _view.ChangeTextBoxColor(Color.Green, 1000);
+                _port.PortName = "";
             }
             else
             {
-                message = "Serial port belum diinisialisasi";
+                message = "Serial port belum diinisialisasi atau sudah ditutup";
                 _view.StatusMessage(message);
                 _view.ChangeTextBoxColor(Color.Yellow, 3500);
             }
@@ -156,7 +155,9 @@ namespace BarcodeCaseA.Presenter
         // Pembanding scan dengan barcode data
         private void judgement(object sender, EventArgs e)
         {
-            if ( _view.serialNumber == _view.scanData)
+            _view.serialNumber = _view.serialNumber.Trim();
+
+            if (_view.serialNumber == _view.scanData)
             {
                 serialPort.Write("OK"); //Mengirim data ke serial
                 _view.judgementData = "OK";
@@ -181,6 +182,7 @@ namespace BarcodeCaseA.Presenter
                 Date = formattedDate,
                 ModelNumber = selectedName,
                 GlobalCodeId = _view.serialNumber,
+                ScanResult = _view.scanData,
                 Adjustment = _view.judgementData,
                 ModelCode = _model.GetModelCode(selectedName),
                 InspectorId = _view.InspectorId
@@ -189,7 +191,7 @@ namespace BarcodeCaseA.Presenter
             var result = _resultRepository.addData(model);
             if (result.success)
             {
-                message = "Data added successfully.";
+                message = "Data berhasil disimpan.";
                 _view.StatusMessage(message);
                 _view.ChangeTextBoxColor(Color.Green, 1000);
             }
@@ -200,7 +202,18 @@ namespace BarcodeCaseA.Presenter
                 _view.ChangeTextBoxColor(Color.Yellow, 3500);
             }
             LoadDataGridView();
+        }
 
+        public void UnassociateViewEvents()
+        {
+            _port.PortOpen -= startPort;
+            _port.PortClose -= stopPort;
+
+            _view.Judgement -= judgement;
+            _view.LoadSetup -= LoadSetup;
+            _view.SelectedModel -= SelectedModel;
+            _view.SearchFilter -= SearchFilter;
+            _view.GetOpenPort -= GetOpenPort;
         }
     }
 }

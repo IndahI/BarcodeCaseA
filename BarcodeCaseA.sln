@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeCaseA", "BarcodeCaseA.csproj", "{69E3F714-DDE7-4E04-8260-CA035C06348E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarcodeCaseA", "BarcodeCaseA.csproj", "{69E3F714-DDE7-4E04-8260-CA035C06348E}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BarcodeCaseASetup", "..\BarcodeCaseASetup\BarcodeCaseASetup.vdproj", "{2DCDB96D-6B06-42A8-A090-F055784583CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{69E3F714-DDE7-4E04-8260-CA035C06348E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69E3F714-DDE7-4E04-8260-CA035C06348E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69E3F714-DDE7-4E04-8260-CA035C06348E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DCDB96D-6B06-42A8-A090-F055784583CC}.Debug|Any CPU.ActiveCfg = Debug
+		{2DCDB96D-6B06-42A8-A090-F055784583CC}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

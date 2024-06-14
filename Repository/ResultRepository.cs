@@ -30,6 +30,7 @@ namespace BarcodeCaseA.Repository
                                     PR.GlobalCodeId, 
                                     PR.Adjustment,
                                     PR.ModelCodeId, 
+                                    PR.ScanResult, 
                                     U.Name AS InspectorId
                                 FROM Packing_Results PR
                                 INNER JOIN LSBU_Common.dbo.Users U ON PR.InspectorId = U.NikId
@@ -50,6 +51,7 @@ namespace BarcodeCaseA.Repository
                             Date = reader["Date"].ToString(),
                             ModelNumber = reader["ModelNumber"].ToString(),
                             GlobalCodeId = reader["GlobalCodeId"].ToString(),
+                            ScanResult = reader["ScanResult"].ToString(),
                             Adjustment = reader["Adjustment"].ToString(),
                             ModelCode = reader["ModelCodeId"].ToString(),
                             Inspector = reader["InspectorId"].ToString()
@@ -72,6 +74,7 @@ namespace BarcodeCaseA.Repository
                                 PR.GlobalCodeId, 
                                 PR.Adjustment,
                                 PR.ModelCodeId, 
+                                PR.ScanResult,
                                 U.Name AS InspectorId
                             FROM Packing_Results PR
                             INNER JOIN LSBU_Common.dbo.Users U ON PR.InspectorId = U.NikId
@@ -94,6 +97,7 @@ namespace BarcodeCaseA.Repository
                             Date = reader["Date"].ToString(),
                             ModelNumber = reader["ModelNumber"].ToString(),
                             GlobalCodeId = reader["GlobalCodeId"].ToString(),
+                            ScanResult = reader["ScanResult"].ToString(),
                             Adjustment = reader["Adjustment"].ToString(),
                             ModelCode = reader["ModelCodeId"].ToString(),
                             Inspector = reader["InspectorId"].ToString()
@@ -112,6 +116,7 @@ namespace BarcodeCaseA.Repository
                 connection.Open();
 
                 // Pengecekan apakah data sudah ada
+                /***
                 string checkQuery = "SELECT COUNT(*) FROM Packing_Results WHERE ModelCodeId = @ModelCode AND GlobalCodeId = @GlobalCodeId AND ModelNumber = @ModelNumber AND Adjustment = @Adjustment AND CONVERT(DATE, Date) = @Date";
                 using (SqlCommand checkCmd = new SqlCommand(checkQuery, connection))
                 {
@@ -127,14 +132,16 @@ namespace BarcodeCaseA.Repository
                         return (false, "Data with the same value already exists.");
                     }
                 }
+                ***/
 
                 // Memasukkan data baru
-                string insertQuery = "INSERT INTO Packing_Results (Date, ModelNumber, GlobalCodeId, Adjustment, ModelCodeId, InspectorId) VALUES (@Date, @ModelNumber, @GlobalCodeId, @Adjustment, @ModelCode, @InspectorId)";
+                string insertQuery = "INSERT INTO Packing_Results (Date, ModelNumber, GlobalCodeId, ScanResult, Adjustment, ModelCodeId, InspectorId) VALUES (@Date, @ModelNumber, @GlobalCodeId, @ScanResult, @Adjustment, @ModelCode, @InspectorId)";
                 using (SqlCommand insertCmd = new SqlCommand(insertQuery, connection))
                 {
                     insertCmd.Parameters.Add("@Date", SqlDbType.DateTime).Value = model.Date;
                     insertCmd.Parameters.Add("@ModelNumber", SqlDbType.VarChar).Value = model.ModelNumber;
                     insertCmd.Parameters.Add("@GlobalCodeId", SqlDbType.VarChar).Value = model.GlobalCodeId;
+                    insertCmd.Parameters.Add("@ScanResult", SqlDbType.VarChar).Value = model.ScanResult;
                     insertCmd.Parameters.Add("@Adjustment", SqlDbType.VarChar).Value = model.Adjustment;
                     insertCmd.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
                     insertCmd.Parameters.Add("@InspectorId", SqlDbType.VarChar).Value = model.InspectorId;
@@ -143,28 +150,6 @@ namespace BarcodeCaseA.Repository
             }
             return (true, null);
         }
-  
-            
-
-        /***
-        public void addData(dynamic model)
-        {
-            using (var connection = new SqlConnection(DBConnection_Packing))
-            using (var command = new SqlCommand())
-            {
-                connection.Open();
-                command.Connection = connection;
-
-                command.CommandText = "INSERT INTO Packing_Results (date, model_number, serial_number, result, model_code) values (@Date, @ModelNumber, @SerialNumber, @Result, @ModelCode)";
-                command.Parameters.Add("@Date", SqlDbType.DateTime).Value = model.Date;
-                command.Parameters.Add("@ModelNumber", SqlDbType.VarChar).Value = model.ModelNumber;
-                command.Parameters.Add("@SerialNumber", SqlDbType.VarChar).Value = model.SerialNumber;
-                command.Parameters.Add("@Result", SqlDbType.VarChar).Value = model.Result;
-                command.Parameters.Add("@ModelCode", SqlDbType.VarChar).Value = model.ModelCode;
-                command.ExecuteNonQuery();
-            }
-        }
-        ***/
     }
 }
 
