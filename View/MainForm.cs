@@ -22,6 +22,7 @@ namespace BarcodeCaseA
             InitializeTabControl();
             HandleAction();
             btnScan.BackColor = Color.FromArgb(34, 40, 43);
+            btnScan.Select();
         }
 
         private void HandleAction()
@@ -54,9 +55,6 @@ namespace BarcodeCaseA
                 // Menghentikan tabControlPresenter
                 tabControlPresenter.stopPort(this, e);
 
-                // Menyembunyikan view saat ini
-                this.Hide();
-
                 // Membuat dan menampilkan form login baru
                 ILoginView loginView = new LoginView();
                 LoginPresenter loginPresenter = new LoginPresenter(loginView, new LoginRepository());
@@ -87,19 +85,32 @@ namespace BarcodeCaseA
 
         // Singleton pattern (open a single form instance)
         private static MainForm instance;
+
         public static MainForm GetInstance(LoginModel loginModel)
         {
-            if (instance == null || instance.IsDisposed)
-                instance = new MainForm(loginModel);
-            else
+
+            // Dispose the old instance if it exists and is not disposed
+            if (instance != null && !instance.IsDisposed)
             {
-                if (instance.WindowState == FormWindowState.Minimized)
-                    instance.WindowState = FormWindowState.Normal;
-                instance.BringToFront();
-                instance._user = loginModel; // Set new user
+                instance.Dispose();
+            }
+
+            // Create a new instance
+            instance = new MainForm(loginModel);
+
+            // Set window state and bring to front if necessary
+            if (instance.WindowState == FormWindowState.Minimized)
+                instance.WindowState = FormWindowState.Normal;
+
+            if (instance._user != loginModel)
+            {
+                instance._user = loginModel;
                 instance.InitializeTabControl();
             }
+
             return instance;
         }
+
+
     }
 }

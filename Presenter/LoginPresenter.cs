@@ -1,5 +1,6 @@
 ﻿using BarcodeCaseA.Model;
 using BarcodeCaseA.View;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Windows.Forms;
 
@@ -26,16 +27,25 @@ namespace BarcodeCaseA.Presenter
             // Membuat instance baru dari LoginModel untuk setiap pencarian login
             LoginModel user = _repository.GetUserByUsername(nik);
 
-            if (user?.Nik != null && user?.Password == password)
+            if (user != null)
             {
-                _Loginview.HideView(); // Menyembunyikan tampilan login
 
-                IMainForm mainForm = MainForm.GetInstance(user);
-                mainForm.Show();
+                bool isPasswordValid = BCrypt.Net.BCrypt.Verify(password, user.Password);
+                if (isPasswordValid)
+                {
+                    _Loginview.HideView();
+                    IMainForm mainForm = MainForm.GetInstance(user);
+                    mainForm.Show();
+                }
+                else
+                {
+                    _Loginview.ShowMessage("Invalid username or password");
+                }
+
             }
             else
             {
-                _Loginview.ShowMessage("Invalid username or password");
+                _Loginview.ShowMessage("User not found");
             }
         }
     }

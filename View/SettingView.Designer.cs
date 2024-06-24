@@ -39,6 +39,7 @@
             btnOpen = new Component.RDButton();
             btnRefresh = new Component.RDButton();
             portBox = new ComboBox();
+            btnExit = new Component.RDButton();
             SuspendLayout();
             // 
             // label1
@@ -98,7 +99,7 @@
             btnConnect.FlatStyle = FlatStyle.Flat;
             btnConnect.Font = new Font("Helvetica", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnConnect.ForeColor = Color.White;
-            btnConnect.Location = new Point(258, 374);
+            btnConnect.Location = new Point(107, 376);
             btnConnect.Name = "btnConnect";
             btnConnect.Size = new Size(138, 39);
             btnConnect.TabIndex = 5;
@@ -131,7 +132,7 @@
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(126, 33);
             btnClose.TabIndex = 45;
-            btnClose.Text = "CLOSE";
+            btnClose.Text = "CLOSE PORT";
             btnClose.TextColor = Color.White;
             btnClose.UseVisualStyleBackColor = false;
             // 
@@ -150,7 +151,7 @@
             btnOpen.Name = "btnOpen";
             btnOpen.Size = new Size(126, 33);
             btnOpen.TabIndex = 44;
-            btnOpen.Text = "OPEN";
+            btnOpen.Text = "OPEN PORT";
             btnOpen.TextColor = Color.White;
             btnOpen.UseVisualStyleBackColor = false;
             // 
@@ -182,11 +183,31 @@
             portBox.Size = new Size(149, 27);
             portBox.TabIndex = 47;
             // 
+            // btnExit
+            // 
+            btnExit.BackColor = Color.Red;
+            btnExit.BackgroundColor = Color.Red;
+            btnExit.BorderColor = Color.PaleVioletRed;
+            btnExit.BorderRadius = 8;
+            btnExit.BorderSize = 0;
+            btnExit.FlatAppearance.BorderSize = 0;
+            btnExit.FlatStyle = FlatStyle.Flat;
+            btnExit.Font = new Font("Helvetica", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnExit.ForeColor = Color.White;
+            btnExit.Location = new Point(336, 376);
+            btnExit.Name = "btnExit";
+            btnExit.Size = new Size(138, 39);
+            btnExit.TabIndex = 48;
+            btnExit.Text = "Close";
+            btnExit.TextColor = Color.White;
+            btnExit.UseVisualStyleBackColor = false;
+            // 
             // SettingView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(617, 463);
+            Controls.Add(btnExit);
             Controls.Add(portBox);
             Controls.Add(btnRefresh);
             Controls.Add(btnClose);
@@ -198,7 +219,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "SettingView";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SettingView";
@@ -220,5 +241,6 @@
         private Component.RDButton btnOpen;
         private Component.RDButton btnRefresh;
         private ComboBox portBox;
+        private Component.RDButton btnExit;
     }
 }

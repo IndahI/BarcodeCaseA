@@ -45,3 +45,4 @@ D:\Barcode Scanner Proyek [tidak jadi]\BarcodeCaseA\obj\Debug\net8.0-windows\ref
 D:\Barcode Scanner Proyek [tidak jadi]\BarcodeCaseA\obj\Debug\net8.0-windows\BarcodeCaseA.View.LoginView.resources
 D:\Barcode Scanner Proyek [tidak jadi]\BarcodeCaseA\obj\Debug\net8.0-windows\BarcodeCaseA.Properties.Resources.resources
 D:\Barcode Scanner Proyek [tidak jadi]\BarcodeCaseA\obj\Debug\net8.0-windows\BarcodeCaseA.View.SettingView.resources
+D:\Barcode Scanner Proyek [tidak jadi]\BarcodeCaseA\bin\Debug\net8.0-windows\BCrypt.Net-Next.dll

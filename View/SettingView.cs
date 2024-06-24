@@ -1,5 +1,7 @@
-﻿using BarcodeCaseA.Presenter;
+﻿using BarcodeCaseA.Model;
+using BarcodeCaseA.Presenter;
 using BarcodeCaseA.Repository;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,6 +89,11 @@ namespace BarcodeCaseA.View
                 loadSetModel();
             };
 
+            btnExit.Click += delegate 
+            {
+                this.Close();
+            };
+
             textBoxIP.TextChanged += (sender, e) =>
             {
                 SaveIPSettings?.Invoke(this, EventArgs.Empty);
@@ -99,10 +106,10 @@ namespace BarcodeCaseA.View
 
             btnConnect.Click += (sender, e) =>
             {
+                this.Close();
                 ILoginView loginView = new LoginView();
                 LoginPresenter loginPresenter = new LoginPresenter(loginView, new LoginRepository());
                 (loginView as Form)?.Show();
-                this.Close();
             };
         }
 

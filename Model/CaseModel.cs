@@ -20,6 +20,7 @@ namespace BarcodeCaseA.Model
         public string inspectorId;
         public string inspector;
         public string scanResult;
+        public string time;
 
         // Properties
         [DisplayName("ID")]
@@ -29,11 +30,12 @@ namespace BarcodeCaseA.Model
             get => id;
             set => id = value;
         }
-        [DisplayName("Date")]
-        public string Date
+
+        [DisplayName("Model Number")]
+        public string ModelNumber
         {
-            get => date;
-            set => date = value;
+            get => modelNumber;
+            set => modelNumber = value;
         }
 
         [DisplayName("Model Code")]
@@ -41,13 +43,6 @@ namespace BarcodeCaseA.Model
         {
             get => modelCode;
             set => modelCode = value;
-        }
-
-        [DisplayName("Model Number")]
-        public string ModelNumber
-        {
-            get => modelNumber;
-            set => modelNumber = value;
         }
 
         [DisplayName("GlobalCodeId")]
@@ -69,6 +64,21 @@ namespace BarcodeCaseA.Model
         {
             get => adjustment;
             set => adjustment = value;
+        }
+
+        [DisplayName("Date")]
+        public string Date
+        {
+            get => date;
+            set => date = value;
+        }
+
+
+        [DisplayName("Time")]
+        public string Time
+        {
+            get => time;
+            set => time = value;
         }
 
         [DisplayName("InspectorId")]

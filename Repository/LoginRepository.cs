@@ -16,7 +16,7 @@ namespace BarcodeCaseA.Repository
         private string DBConnection;
         public LoginRepository()
         {
-            DBConnection = ConfigurationManager.ConnectionStrings["DBConnectionCommon"].ConnectionString;
+            DBConnection = ConfigurationManager.ConnectionStrings["DBConnectionAuth"].ConnectionString;
         }
 
         public LoginModel GetUserByUsername(string username)
@@ -26,16 +26,17 @@ namespace BarcodeCaseA.Repository
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = "SELECT NikId, Name, Password FROM Users WHERE NikId = @Nik";
-                command.Parameters.Add("@Nik", SqlDbType.Int).Value = username;
+                command.CommandText = "SELECT PasswordHash, NIK, Name FROM AspNetUsers WHERE NIK = @NIK";
+                command.Parameters.Add("@NIK", SqlDbType.Int).Value = username;
                 using (var reader = command.ExecuteReader())
                 {
                     if (reader.Read())
                     {
-                        string nik = reader["NikId"].ToString();
-                        string name = reader["Name"].ToString();
-                        string password = reader["Password"].ToString();
-                        return new LoginModel { Nik = nik, Name = name, Password = password };
+                        string Nik = reader["NIK"].ToString();
+                        string Name = reader["Name"].ToString();
+                        string Password = reader["PasswordHash"].ToString();
+
+                        return new LoginModel { Nik = Nik, Name = Name, Password = Password };
                     }
                     else
                     {

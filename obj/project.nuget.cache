@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "UeYmVHy0M00lVETXB056r1giILqB+GsNnxYA39GRgz/WADsn3g7CkOIWZrov11d+1o85C9tcKqQVp6kc2wwK/A==",
+  "dgSpecHash": "e4X+RRW4ShCc+NiWGNkOH4zlK85UrF9HAM9vflOkDVH8wLnbw+VMBfkZRSS0Aj04ljCWtwKbJVQDVHoLk4eaxA==",
   "success": true,
   "projectFilePath": "D:\\Barcode Scanner Proyek [tidak jadi]\\BarcodeCaseA\\BarcodeCaseA.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\indah\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\indah\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\indah\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\indah\\.nuget\\packages\\runtime.linux-arm.runtime.native.system.io.ports\\8.0.0\\runtime.linux-arm.runtime.native.system.io.ports.8.0.0.nupkg.sha512",

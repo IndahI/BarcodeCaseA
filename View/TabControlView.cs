@@ -121,13 +121,20 @@ namespace BarcodeCaseA.View
             {
                 scanBox.Text = message;
             }
-            if (scanBox.Text == 'NoRead')
+
+            if (scanBox.Text == "NoRead")
             {
-                scanBox.Text == '';
+                scanBox.Text = "";
+                message = "Hasil scan tidak terbaca";
+                StatusMessage(message);
+                ChangeTextBoxColor(Color.Red, 3500);
             }
-            else if (CheckVariable())
+            else
             {
-                Judgement?.Invoke(this, EventArgs.Empty);
+                if (CheckVariable())
+                {
+                    Judgement?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -172,9 +179,9 @@ namespace BarcodeCaseA.View
                 SearchFilter?.Invoke(sender, e);
             };
 
-            panel1.Resize += (sender, e) =>
+            panel2.Resize += (sender, e) =>
             {
-                jdgText.Size = panel1.ClientSize;
+                jdgText.Size = panel2.ClientSize;
             };
 
             dataGridView1.RowPostPaint += (sender, e) =>
@@ -194,7 +201,7 @@ namespace BarcodeCaseA.View
             dataGridView2.RowPostPaint += (sender, e) =>
             {
                 DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
-                int totalRows = dataGridView1.Rows.Count;
+                int totalRows = dataGridView2.Rows.Count;
                 row.Cells["No2"].Value = (totalRows - e.RowIndex).ToString();
                 row.Cells["No2"].Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             };
@@ -220,10 +227,10 @@ namespace BarcodeCaseA.View
                 jdgText.Visible = true;
                 if (defaultColor == Color.Empty)
                 {
-                    defaultColor = panel1.BackColor;
+                    defaultColor = panel2.BackColor;
                 }
 
-                panel1.BackColor = newColor;
+                panel2.BackColor = newColor;
 
                 var revertTimer = new System.Windows.Forms.Timer
                 {
@@ -232,7 +239,7 @@ namespace BarcodeCaseA.View
                 revertTimer.Start();
                 revertTimer.Tick += (sender, e) =>
                 {
-                    panel1.BackColor = defaultColor;
+                    panel2.BackColor = defaultColor;
                     scanBox.Clear();
                     revertTimer.Stop();
                     jdgText.Visible = false;
@@ -246,7 +253,7 @@ namespace BarcodeCaseA.View
             BeginInvoke(new Action(() =>
             {
                 statusText.BackColor = newColor;
-                if (newColor == Color.Green)
+                if (newColor == Color.Green || newColor == Color.Red)
                 {
                     ChangeLabelsFontColor(Color.White);
                 }
@@ -259,7 +266,7 @@ namespace BarcodeCaseA.View
                 revertTimer.Tick += (sender, e) =>
                 {
                     ChangeLabelsFontColor(SystemColors.WindowText);
-                    statusText.BackColor = Color.FromArgb(220, 225, 230);
+                    statusText.BackColor = SystemColors.Control;
                     statusText.Text = "";
                     revertTimer.Stop();
                 };
@@ -273,9 +280,9 @@ namespace BarcodeCaseA.View
 
         private void scanBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if (CheckVariable()) 
+            if (CheckVariable())
             {
-                if (isKeyboardEnabled) 
+                if (isKeyboardEnabled)
                 {
                     if (e.KeyCode == Keys.Enter)
                     {

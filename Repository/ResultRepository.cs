@@ -8,6 +8,7 @@ using System.Data;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BarcodeCaseA.Repository
 {
@@ -94,7 +95,8 @@ namespace BarcodeCaseA.Repository
                         results.Add(new CaseModel
                         {
                             Id = reader["Id"].ToString(),
-                            Date = reader["Date"].ToString(),
+                            Date = Convert.ToDateTime(reader["Date"]).ToString("yyyy-MM-dd"),
+                            Time = Convert.ToDateTime(reader["Date"]).ToString("HH:mm:ss"),
                             ModelNumber = reader["ModelNumber"].ToString(),
                             GlobalCodeId = reader["GlobalCodeId"].ToString(),
                             ScanResult = reader["ScanResult"].ToString(),

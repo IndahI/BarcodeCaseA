@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginView));
             rdPanel1 = new Component.RDPanel();
             panel2 = new Panel();
+            label2 = new Label();
             btnExit = new Component.RDButton();
             btnLogin = new Component.RDButton();
             pictureBox2 = new PictureBox();
@@ -40,14 +41,10 @@
             label1 = new Label();
             hiddenPass = new PictureBox();
             textBoxPassword = new TextBox();
-            panel3 = new Panel();
-            label3 = new Label();
-            label2 = new Label();
             rdPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)hiddenPass).BeginInit();
-            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // rdPanel1
@@ -57,6 +54,7 @@
             rdPanel1.BorderColor = Color.Silver;
             rdPanel1.BorderSize = 1;
             rdPanel1.Controls.Add(panel2);
+            rdPanel1.Controls.Add(label2);
             rdPanel1.Controls.Add(btnExit);
             rdPanel1.Controls.Add(btnLogin);
             rdPanel1.Controls.Add(pictureBox2);
@@ -67,19 +65,30 @@
             rdPanel1.Controls.Add(hiddenPass);
             rdPanel1.Controls.Add(textBoxPassword);
             rdPanel1.CornerRadius = 15;
-            rdPanel1.Location = new Point(415, 156);
+            rdPanel1.Location = new Point(285, 101);
             rdPanel1.Name = "rdPanel1";
-            rdPanel1.Size = new Size(432, 318);
+            rdPanel1.Size = new Size(648, 355);
             rdPanel1.TabIndex = 0;
             // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.None;
             panel2.BackColor = SystemColors.ControlDark;
-            panel2.Location = new Point(84, 194);
+            panel2.Location = new Point(194, 236);
             panel2.Name = "panel2";
             panel2.Size = new Size(303, 2);
             panel2.TabIndex = 3;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Helvetica", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.ControlText;
+            label2.Location = new Point(140, 35);
+            label2.Name = "label2";
+            label2.Size = new Size(396, 38);
+            label2.TabIndex = 0;
+            label2.Text = "Barcode Scanner Case A";
             // 
             // btnExit
             // 
@@ -92,7 +101,7 @@
             btnExit.FlatStyle = FlatStyle.Flat;
             btnExit.Font = new Font("Helvetica", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExit.ForeColor = Color.White;
-            btnExit.Location = new Point(239, 240);
+            btnExit.Location = new Point(362, 282);
             btnExit.Name = "btnExit";
             btnExit.Size = new Size(113, 40);
             btnExit.TabIndex = 9;
@@ -111,7 +120,7 @@
             btnLogin.FlatStyle = FlatStyle.Flat;
             btnLogin.Font = new Font("Helvetica", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogin.ForeColor = Color.White;
-            btnLogin.Location = new Point(84, 240);
+            btnLogin.Location = new Point(207, 282);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(113, 40);
             btnLogin.TabIndex = 8;
@@ -122,7 +131,7 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(41, 164);
+            pictureBox2.Location = new Point(150, 201);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(28, 37);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
@@ -132,7 +141,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(41, 104);
+            pictureBox1.Location = new Point(150, 141);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(28, 37);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -144,7 +153,7 @@
             // 
             panel1.Anchor = AnchorStyles.None;
             panel1.BackColor = SystemColors.ControlDark;
-            panel1.Location = new Point(84, 134);
+            panel1.Location = new Point(194, 176);
             panel1.Name = "panel1";
             panel1.Size = new Size(303, 2);
             panel1.TabIndex = 2;
@@ -155,7 +164,7 @@
             textBoxNik.BackColor = Color.White;
             textBoxNik.BorderStyle = BorderStyle.None;
             textBoxNik.Font = new Font("Helvetica", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxNik.Location = new Point(84, 104);
+            textBoxNik.Location = new Point(194, 146);
             textBoxNik.Name = "textBoxNik";
             textBoxNik.PlaceholderText = "NIK";
             textBoxNik.Size = new Size(303, 25);
@@ -167,17 +176,17 @@
             label1.Anchor = AnchorStyles.None;
             label1.AutoSize = true;
             label1.Font = new Font("Helvetica", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(178, 33);
+            label1.Location = new Point(131, 73);
             label1.Name = "label1";
-            label1.Size = new Size(101, 32);
+            label1.Size = new Size(420, 32);
             label1.TabIndex = 0;
-            label1.Text = "LOGIN";
+            label1.Text = "Laundry System Business Unit";
             // 
             // hiddenPass
             // 
             hiddenPass.BackColor = Color.Transparent;
             hiddenPass.Image = Properties.Resources.eye;
-            hiddenPass.Location = new Point(361, 165);
+            hiddenPass.Location = new Point(471, 204);
             hiddenPass.Name = "hiddenPass";
             hiddenPass.Size = new Size(26, 31);
             hiddenPass.SizeMode = PictureBoxSizeMode.Zoom;
@@ -190,7 +199,7 @@
             textBoxPassword.BackColor = Color.White;
             textBoxPassword.BorderStyle = BorderStyle.None;
             textBoxPassword.Font = new Font("Helvetica", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPassword.Location = new Point(84, 164);
+            textBoxPassword.Location = new Point(194, 206);
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.PasswordChar = '*';
             textBoxPassword.PlaceholderText = "Password";
@@ -198,49 +207,13 @@
             textBoxPassword.TabIndex = 3;
             textBoxPassword.KeyDown += textBoxPassword_KeyDown;
             // 
-            // panel3
-            // 
-            panel3.BackColor = Color.FromArgb(27, 140, 124);
-            panel3.Controls.Add(label3);
-            panel3.Controls.Add(label2);
-            panel3.Dock = DockStyle.Top;
-            panel3.Location = new Point(0, 0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(1256, 89);
-            panel3.TabIndex = 1;
-            // 
-            // label3
-            // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label3.AutoSize = true;
-            label3.Font = new Font("Helvetica", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.ForeColor = Color.White;
-            label3.Location = new Point(687, 24);
-            label3.Name = "label3";
-            label3.Size = new Size(557, 42);
-            label3.TabIndex = 1;
-            label3.Text = "Laundry Systems Business Unit";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Helvetica", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(0, 17);
-            label2.Name = "label2";
-            label2.Size = new Size(598, 57);
-            label2.TabIndex = 0;
-            label2.Text = "Barcode Scanner Case A";
-            // 
             // LoginView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 241, 243);
             ClientSize = new Size(1256, 535);
-            Controls.Add(panel3);
             Controls.Add(rdPanel1);
-            FormBorderStyle = FormBorderStyle.None;
             Name = "LoginView";
             Text = "LoginView";
             WindowState = FormWindowState.Maximized;
@@ -250,8 +223,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)hiddenPass).EndInit();
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -263,9 +234,7 @@
         private TextBox textBoxPassword;
         private Panel panel1;
         private Panel panel2;
-        private Panel panel3;
         private Label label2;
-        private Label label3;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
         private Component.RDButton btnExit;

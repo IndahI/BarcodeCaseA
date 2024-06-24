@@ -16,6 +16,7 @@ namespace BarcodeCaseA.Presenter
         private IEnumerable<CaseModel> _casemodel;
         private readonly IResultRepository _resultRepository;
         private BindingSource _dataBindingSource;
+        private BindingSource _dataBindingSource2;
         private SerialPort serialPort;
         public string selectedName, message;
 
@@ -26,6 +27,7 @@ namespace BarcodeCaseA.Presenter
             _port = data.PortModel;
             _model = new SetModel();
             _dataBindingSource = new BindingSource();
+            _dataBindingSource2 = new BindingSource();
 
             _view.InspectorId = data.User.Nik;
             _view.inspector = data.User.Name;
@@ -55,8 +57,8 @@ namespace BarcodeCaseA.Presenter
         public void SearchFilter(object sender, EventArgs e)
         {
             _casemodel = _resultRepository.GetFilter(_view.SelectedDate);
-            _dataBindingSource.DataSource = _casemodel;
-            _view.SetDefectListBindingSource(_dataBindingSource);
+            _dataBindingSource2.DataSource = _casemodel;
+            _view.SetDefectListBindingSource(_dataBindingSource2);
         }
 
         private void LoadDataGridView()
