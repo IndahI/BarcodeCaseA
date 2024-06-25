@@ -172,6 +172,7 @@ namespace BarcodeCaseA.View
             {
                 scanBox.Text = "";
                 setModelBox.Text = "";
+                selectIdText.Text = "";
             };
 
             btnSearch.Click += (sender, e) =>

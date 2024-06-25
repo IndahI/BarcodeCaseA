@@ -41,10 +41,12 @@
             label1 = new Label();
             hiddenPass = new PictureBox();
             textBoxPassword = new TextBox();
+            pictureBox3 = new PictureBox();
             rdPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)hiddenPass).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // rdPanel1
@@ -92,8 +94,8 @@
             // 
             // btnExit
             // 
-            btnExit.BackColor = Color.Red;
-            btnExit.BackgroundColor = Color.Red;
+            btnExit.BackColor = Color.FromArgb(210, 69, 69);
+            btnExit.BackgroundColor = Color.FromArgb(210, 69, 69);
             btnExit.BorderColor = Color.PaleVioletRed;
             btnExit.BorderRadius = 8;
             btnExit.BorderSize = 0;
@@ -111,8 +113,8 @@
             // 
             // btnLogin
             // 
-            btnLogin.BackColor = Color.FromArgb(46, 174, 156);
-            btnLogin.BackgroundColor = Color.FromArgb(46, 174, 156);
+            btnLogin.BackColor = Color.FromArgb(95, 111, 82);
+            btnLogin.BackgroundColor = Color.FromArgb(95, 111, 82);
             btnLogin.BorderColor = Color.PaleVioletRed;
             btnLogin.BorderRadius = 8;
             btnLogin.BorderSize = 0;
@@ -207,6 +209,17 @@
             textBoxPassword.TabIndex = 3;
             textBoxPassword.KeyDown += textBoxPassword_KeyDown;
             // 
+            // pictureBox3
+            // 
+            pictureBox3.Dock = DockStyle.Fill;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(0, 0);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(1256, 535);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 1;
+            pictureBox3.TabStop = false;
+            // 
             // LoginView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -214,6 +227,8 @@
             BackColor = Color.FromArgb(238, 241, 243);
             ClientSize = new Size(1256, 535);
             Controls.Add(rdPanel1);
+            Controls.Add(pictureBox3);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "LoginView";
             Text = "LoginView";
             WindowState = FormWindowState.Maximized;
@@ -223,6 +238,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)hiddenPass).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -240,5 +256,6 @@
         private Component.RDButton btnExit;
         private Component.RDButton btnLogin;
         private PictureBox hiddenPass;
+        private PictureBox pictureBox3;
     }
 }

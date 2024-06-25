@@ -40,13 +40,14 @@
             btnRefresh = new Component.RDButton();
             portBox = new ComboBox();
             btnExit = new Component.RDButton();
+            label5 = new Label();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Helvetica", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(230, 63);
+            label1.Location = new Point(230, 48);
             label1.Name = "label1";
             label1.Size = new Size(154, 38);
             label1.TabIndex = 0;
@@ -56,7 +57,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
-            label2.Location = new Point(82, 269);
+            label2.Location = new Point(82, 235);
             label2.Name = "label2";
             label2.Size = new Size(106, 22);
             label2.TabIndex = 1;
@@ -66,7 +67,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Helvetica", 14.25F, FontStyle.Bold);
-            label3.Location = new Point(82, 323);
+            label3.Location = new Point(82, 282);
             label3.Name = "label3";
             label3.Size = new Size(127, 22);
             label3.TabIndex = 2;
@@ -75,7 +76,7 @@
             // textBoxIP
             // 
             textBoxIP.Font = new Font("Helvetica", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxIP.Location = new Point(258, 271);
+            textBoxIP.Location = new Point(258, 237);
             textBoxIP.Name = "textBoxIP";
             textBoxIP.Size = new Size(263, 26);
             textBoxIP.TabIndex = 3;
@@ -83,15 +84,15 @@
             // textBoxPort
             // 
             textBoxPort.Font = new Font("Helvetica", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxPort.Location = new Point(258, 323);
+            textBoxPort.Location = new Point(258, 282);
             textBoxPort.Name = "textBoxPort";
             textBoxPort.Size = new Size(263, 26);
             textBoxPort.TabIndex = 4;
             // 
             // btnConnect
             // 
-            btnConnect.BackColor = Color.FromArgb(46, 174, 156);
-            btnConnect.BackgroundColor = Color.FromArgb(46, 174, 156);
+            btnConnect.BackColor = Color.FromArgb(169, 179, 136);
+            btnConnect.BackgroundColor = Color.FromArgb(169, 179, 136);
             btnConnect.BorderColor = Color.PaleVioletRed;
             btnConnect.BorderRadius = 8;
             btnConnect.BorderSize = 0;
@@ -119,40 +120,40 @@
             // 
             // btnClose
             // 
-            btnClose.BackColor = Color.Red;
-            btnClose.BackgroundColor = Color.Red;
+            btnClose.BackColor = Color.Transparent;
+            btnClose.BackgroundColor = Color.Transparent;
             btnClose.BorderColor = Color.PaleVioletRed;
             btnClose.BorderRadius = 8;
-            btnClose.BorderSize = 0;
+            btnClose.BorderSize = 3;
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatStyle = FlatStyle.Flat;
             btnClose.Font = new Font("Helvetica", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnClose.ForeColor = Color.White;
+            btnClose.ForeColor = Color.PaleVioletRed;
             btnClose.Location = new Point(395, 182);
             btnClose.Name = "btnClose";
             btnClose.Size = new Size(126, 33);
             btnClose.TabIndex = 45;
             btnClose.Text = "CLOSE PORT";
-            btnClose.TextColor = Color.White;
+            btnClose.TextColor = Color.PaleVioletRed;
             btnClose.UseVisualStyleBackColor = false;
             // 
             // btnOpen
             // 
-            btnOpen.BackColor = Color.FromArgb(46, 174, 156);
-            btnOpen.BackgroundColor = Color.FromArgb(46, 174, 156);
-            btnOpen.BorderColor = Color.PaleVioletRed;
+            btnOpen.BackColor = Color.Transparent;
+            btnOpen.BackgroundColor = Color.Transparent;
+            btnOpen.BorderColor = Color.FromArgb(169, 179, 136);
             btnOpen.BorderRadius = 8;
-            btnOpen.BorderSize = 0;
+            btnOpen.BorderSize = 3;
             btnOpen.FlatAppearance.BorderSize = 0;
             btnOpen.FlatStyle = FlatStyle.Flat;
             btnOpen.Font = new Font("Helvetica", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnOpen.ForeColor = Color.White;
+            btnOpen.ForeColor = Color.FromArgb(169, 179, 136);
             btnOpen.Location = new Point(258, 182);
             btnOpen.Name = "btnOpen";
             btnOpen.Size = new Size(126, 33);
             btnOpen.TabIndex = 44;
             btnOpen.Text = "OPEN PORT";
-            btnOpen.TextColor = Color.White;
+            btnOpen.TextColor = Color.FromArgb(169, 179, 136);
             btnOpen.UseVisualStyleBackColor = false;
             // 
             // btnRefresh
@@ -185,8 +186,8 @@
             // 
             // btnExit
             // 
-            btnExit.BackColor = Color.Red;
-            btnExit.BackgroundColor = Color.Red;
+            btnExit.BackColor = Color.FromArgb(210, 69, 69);
+            btnExit.BackgroundColor = Color.FromArgb(210, 69, 69);
             btnExit.BorderColor = Color.PaleVioletRed;
             btnExit.BorderRadius = 8;
             btnExit.BorderSize = 0;
@@ -202,11 +203,23 @@
             btnExit.TextColor = Color.White;
             btnExit.UseVisualStyleBackColor = false;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.FromArgb(210, 69, 69);
+            label5.Location = new Point(260, 316);
+            label5.Name = "label5";
+            label5.Size = new Size(232, 15);
+            label5.TabIndex = 49;
+            label5.Text = "*Click button connect after change IP/Port";
+            // 
             // SettingView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(617, 463);
+            Controls.Add(label5);
             Controls.Add(btnExit);
             Controls.Add(portBox);
             Controls.Add(btnRefresh);
@@ -242,5 +255,6 @@
         private Component.RDButton btnRefresh;
         private ComboBox portBox;
         private Component.RDButton btnExit;
+        private Label label5;
     }
 }

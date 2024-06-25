@@ -66,6 +66,8 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             btnSearch = new Component.RDButton();
             dtFromDate = new DateTimePicker();
+            pictureBox6 = new PictureBox();
+            label3 = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel6 = new TableLayoutPanel();
             tableLayoutPanel5 = new TableLayoutPanel();
@@ -88,6 +90,7 @@
             tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             tableLayoutPanel5.SuspendLayout();
             SuspendLayout();
             // 
@@ -175,10 +178,10 @@
             // 
             timeHeader.Anchor = AnchorStyles.None;
             timeHeader.AutoSize = true;
-            timeHeader.Font = new Font("Helvetica", 15.75F, FontStyle.Bold);
-            timeHeader.Location = new Point(189, 25);
+            timeHeader.Font = new Font("Helvetica", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            timeHeader.Location = new Point(182, 25);
             timeHeader.Name = "timeHeader";
-            timeHeader.Size = new Size(65, 25);
+            timeHeader.Size = new Size(80, 25);
             timeHeader.TabIndex = 40;
             timeHeader.Text = "TIME";
             // 
@@ -235,11 +238,12 @@
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel7.Controls.Add(tableLayoutPanel8, 0, 0);
             tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(3, 3);
+            tableLayoutPanel7.Location = new Point(0, 3);
+            tableLayoutPanel7.Margin = new Padding(0, 3, 0, 3);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 1;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 81F));
-            tableLayoutPanel7.Size = new Size(829, 209);
+            tableLayoutPanel7.Size = new Size(835, 209);
             tableLayoutPanel7.TabIndex = 44;
             // 
             // tableLayoutPanel8
@@ -264,7 +268,8 @@
             tableLayoutPanel8.Controls.Add(pictureBox1, 0, 1);
             tableLayoutPanel8.Controls.Add(tableLayoutPanel10, 2, 4);
             tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(3, 3);
+            tableLayoutPanel8.Location = new Point(0, 3);
+            tableLayoutPanel8.Margin = new Padding(0, 3, 0, 3);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 5;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
@@ -272,7 +277,7 @@
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel8.Size = new Size(823, 203);
+            tableLayoutPanel8.Size = new Size(835, 203);
             tableLayoutPanel8.TabIndex = 0;
             // 
             // pictureBox5
@@ -336,9 +341,9 @@
             scanBox.BorderStyle = BorderStyle.FixedSingle;
             scanBox.Dock = DockStyle.Fill;
             scanBox.Font = new Font("Helvetica", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            scanBox.Location = new Point(222, 3);
+            scanBox.Location = new Point(224, 3);
             scanBox.Name = "scanBox";
-            scanBox.Size = new Size(598, 30);
+            scanBox.Size = new Size(608, 30);
             scanBox.TabIndex = 9;
             scanBox.KeyDown += scanBox_KeyDown;
             // 
@@ -347,10 +352,10 @@
             textBoxInspector.BorderStyle = BorderStyle.FixedSingle;
             textBoxInspector.Dock = DockStyle.Fill;
             textBoxInspector.Font = new Font("Helvetica", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBoxInspector.Location = new Point(222, 123);
+            textBoxInspector.Location = new Point(224, 123);
             textBoxInspector.Name = "textBoxInspector";
             textBoxInspector.ReadOnly = true;
-            textBoxInspector.Size = new Size(598, 30);
+            textBoxInspector.Size = new Size(608, 30);
             textBoxInspector.TabIndex = 7;
             // 
             // selectIdText
@@ -358,10 +363,10 @@
             selectIdText.BorderStyle = BorderStyle.FixedSingle;
             selectIdText.Dock = DockStyle.Fill;
             selectIdText.Font = new Font("Helvetica", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            selectIdText.Location = new Point(222, 83);
+            selectIdText.Location = new Point(224, 83);
             selectIdText.Name = "selectIdText";
             selectIdText.ReadOnly = true;
-            selectIdText.Size = new Size(598, 30);
+            selectIdText.Size = new Size(608, 30);
             selectIdText.TabIndex = 6;
             // 
             // label7
@@ -381,9 +386,9 @@
             setModelBox.Dock = DockStyle.Fill;
             setModelBox.Font = new Font("Helvetica", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             setModelBox.FormattingEnabled = true;
-            setModelBox.Location = new Point(222, 43);
+            setModelBox.Location = new Point(224, 43);
             setModelBox.Name = "setModelBox";
-            setModelBox.Size = new Size(598, 30);
+            setModelBox.Size = new Size(608, 30);
             setModelBox.TabIndex = 2;
             // 
             // label8
@@ -441,18 +446,18 @@
             tableLayoutPanel10.Controls.Add(btnClear, 0, 0);
             tableLayoutPanel10.Controls.Add(statusText, 0, 0);
             tableLayoutPanel10.Dock = DockStyle.Fill;
-            tableLayoutPanel10.Location = new Point(219, 160);
+            tableLayoutPanel10.Location = new Point(221, 160);
             tableLayoutPanel10.Margin = new Padding(0);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 1;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel10.Size = new Size(604, 43);
+            tableLayoutPanel10.Size = new Size(614, 43);
             tableLayoutPanel10.TabIndex = 17;
             // 
             // btnClear
             // 
-            btnClear.BackColor = Color.FromArgb(46, 174, 156);
-            btnClear.BackgroundColor = Color.FromArgb(46, 174, 156);
+            btnClear.BackColor = Color.FromArgb(95, 111, 82);
+            btnClear.BackgroundColor = Color.FromArgb(95, 111, 82);
             btnClear.BorderColor = Color.PaleVioletRed;
             btnClear.BorderRadius = 8;
             btnClear.BorderSize = 0;
@@ -461,10 +466,10 @@
             btnClear.FlatStyle = FlatStyle.Flat;
             btnClear.Font = new Font("Helvetica", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(456, 0);
+            btnClear.Location = new Point(463, 0);
             btnClear.Margin = new Padding(3, 0, 3, 3);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(145, 40);
+            btnClear.Size = new Size(148, 40);
             btnClear.TabIndex = 12;
             btnClear.Text = "Clear Data";
             btnClear.TextColor = Color.White;
@@ -478,7 +483,7 @@
             statusText.Location = new Point(3, 3);
             statusText.Name = "statusText";
             statusText.ReadOnly = true;
-            statusText.Size = new Size(447, 30);
+            statusText.Size = new Size(454, 30);
             statusText.TabIndex = 11;
             // 
             // tabPage2
@@ -517,12 +522,17 @@
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 35F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-            tableLayoutPanel1.Controls.Add(btnSearch, 2, 0);
-            tableLayoutPanel1.Controls.Add(dtFromDate, 1, 0);
+            tableLayoutPanel1.ColumnCount = 6;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 2.49027228F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5.992218F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 26.07004F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 4.6692605F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 27.315176F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.33951F));
+            tableLayoutPanel1.Controls.Add(btnSearch, 4, 0);
+            tableLayoutPanel1.Controls.Add(dtFromDate, 2, 0);
+            tableLayoutPanel1.Controls.Add(pictureBox6, 0, 0);
+            tableLayoutPanel1.Controls.Add(label3, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -533,8 +543,8 @@
             // 
             // btnSearch
             // 
-            btnSearch.BackColor = Color.FromArgb(46, 174, 156);
-            btnSearch.BackgroundColor = Color.FromArgb(46, 174, 156);
+            btnSearch.BackColor = Color.FromArgb(95, 111, 82);
+            btnSearch.BackgroundColor = Color.FromArgb(95, 111, 82);
             btnSearch.BorderColor = Color.PaleVioletRed;
             btnSearch.BorderRadius = 8;
             btnSearch.BorderSize = 0;
@@ -543,9 +553,9 @@
             btnSearch.FlatStyle = FlatStyle.Flat;
             btnSearch.Font = new Font("Helvetica", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSearch.ForeColor = Color.White;
-            btnSearch.Location = new Point(1094, 3);
+            btnSearch.Location = new Point(507, 3);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(188, 36);
+            btnSearch.Size = new Size(345, 36);
             btnSearch.TabIndex = 0;
             btnSearch.Text = "Search";
             btnSearch.TextColor = Color.White;
@@ -556,10 +566,32 @@
             dtFromDate.CalendarFont = new Font("Helvetica", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtFromDate.Dock = DockStyle.Fill;
             dtFromDate.Font = new Font("Helvetica", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dtFromDate.Location = new Point(645, 3);
+            dtFromDate.Location = new Point(112, 3);
             dtFromDate.Name = "dtFromDate";
-            dtFromDate.Size = new Size(443, 30);
+            dtFromDate.Size = new Size(329, 30);
             dtFromDate.TabIndex = 1;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(3, 3);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(26, 36);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 2;
+            pictureBox6.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Helvetica", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(35, 5);
+            label3.Margin = new Padding(3, 5, 3, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(66, 29);
+            label3.TabIndex = 3;
+            label3.Text = "Date";
+            label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
             // 
@@ -637,6 +669,8 @@
             tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
             ResumeLayout(false);
@@ -686,5 +720,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Component.RDButton btnSearch;
         private DateTimePicker dtFromDate;
+        private PictureBox pictureBox6;
+        private Label label3;
     }
 }

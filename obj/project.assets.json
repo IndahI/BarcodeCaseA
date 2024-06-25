@@ -737,19 +737,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\indah\\.nuget\\packages\\": {}
+    "C:\\Users\\hp090\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Barcode Scanner Proyek [tidak jadi]\\BarcodeCaseA\\BarcodeCaseA.csproj",
+      "projectUniqueName": "D:\\Perkuliahan\\Semester6\\Panasonic\\BarcodeCaseA\\BarcodeCaseA.csproj",
       "projectName": "BarcodeCaseA",
-      "projectPath": "D:\\Barcode Scanner Proyek [tidak jadi]\\BarcodeCaseA\\BarcodeCaseA.csproj",
-      "packagesPath": "C:\\Users\\indah\\.nuget\\packages\\",
-      "outputPath": "D:\\Barcode Scanner Proyek [tidak jadi]\\BarcodeCaseA\\obj\\",
+      "projectPath": "D:\\Perkuliahan\\Semester6\\Panasonic\\BarcodeCaseA\\BarcodeCaseA.csproj",
+      "packagesPath": "C:\\Users\\hp090\\.nuget\\packages\\",
+      "outputPath": "D:\\Perkuliahan\\Semester6\\Panasonic\\BarcodeCaseA\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\indah\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hp090\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -769,11 +769,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -812,7 +807,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

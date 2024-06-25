@@ -47,13 +47,13 @@
             // 
             // panel1
             // 
-            panel1.BackColor = Color.FromArgb(27, 140, 124);
+            panel1.BackColor = Color.FromArgb(89, 126, 82);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1243, 89);
+            panel1.Size = new Size(1300, 89);
             panel1.TabIndex = 0;
             // 
             // label2
@@ -62,7 +62,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Helvetica", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(693, 24);
+            label2.Location = new Point(750, 24);
             label2.Name = "label2";
             label2.Size = new Size(538, 42);
             label2.TabIndex = 1;
@@ -88,13 +88,13 @@
             // splitContainer1.Panel1
             // 
             splitContainer1.Panel1.Controls.Add(tableLayoutPanel1);
-            splitContainer1.Size = new Size(1243, 361);
-            splitContainer1.SplitterDistance = 92;
+            splitContainer1.Size = new Size(1300, 592);
+            splitContainer1.SplitterDistance = 107;
             splitContainer1.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = Color.FromArgb(27, 140, 124);
+            tableLayoutPanel1.BackColor = Color.FromArgb(89, 126, 82);
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(btnSetting, 0, 2);
@@ -102,18 +102,20 @@
             tableLayoutPanel1.Controls.Add(btnScan, 0, 0);
             tableLayoutPanel1.Controls.Add(btnRecord, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Font = new Font("Arial Rounded MT Bold", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 0, 3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 7;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2893867F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2851F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2851028F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2851009F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2851028F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2851009F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 14.2851028F));
+            tableLayoutPanel1.RowCount = 8;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.381663F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.4255323F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.2127657F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.729496F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 21.6693878F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 30.3371449F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 99F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel1.Size = new Size(92, 361);
+            tableLayoutPanel1.Size = new Size(107, 592);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // btnSetting
@@ -121,29 +123,29 @@
             btnSetting.Dock = DockStyle.Fill;
             btnSetting.FlatAppearance.BorderSize = 0;
             btnSetting.FlatStyle = FlatStyle.Flat;
-            btnSetting.Font = new Font("Franklin Gothic Medium", 14.25F);
+            btnSetting.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSetting.ForeColor = Color.White;
             btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
-            btnSetting.Location = new Point(3, 105);
+            btnSetting.Location = new Point(3, 96);
             btnSetting.Name = "btnSetting";
-            btnSetting.Size = new Size(86, 45);
+            btnSetting.Size = new Size(101, 42);
             btnSetting.TabIndex = 3;
-            btnSetting.Text = "Setting";
+            btnSetting.Text = "\r\nSetting";
             btnSetting.TextImageRelation = TextImageRelation.ImageAboveText;
             btnSetting.UseVisualStyleBackColor = true;
             // 
             // btnLogOut
             // 
-            btnLogOut.BackColor = Color.Red;
+            btnLogOut.BackColor = Color.FromArgb(210, 69, 69);
             btnLogOut.Dock = DockStyle.Fill;
             btnLogOut.FlatAppearance.BorderSize = 0;
             btnLogOut.FlatStyle = FlatStyle.Flat;
-            btnLogOut.Font = new Font("Franklin Gothic Medium", 14.25F);
+            btnLogOut.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
-            btnLogOut.Location = new Point(3, 309);
+            btnLogOut.Location = new Point(3, 473);
             btnLogOut.Name = "btnLogOut";
-            btnLogOut.Size = new Size(86, 49);
+            btnLogOut.Size = new Size(101, 93);
             btnLogOut.TabIndex = 2;
             btnLogOut.Text = "Log Out";
             btnLogOut.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -154,14 +156,15 @@
             btnScan.Dock = DockStyle.Fill;
             btnScan.FlatAppearance.BorderSize = 0;
             btnScan.FlatStyle = FlatStyle.Flat;
-            btnScan.Font = new Font("Franklin Gothic Medium", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnScan.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnScan.ForeColor = Color.White;
             btnScan.Image = (Image)resources.GetObject("btnScan.Image");
-            btnScan.Location = new Point(3, 3);
+            btnScan.Location = new Point(3, 0);
+            btnScan.Margin = new Padding(3, 0, 3, 3);
             btnScan.Name = "btnScan";
-            btnScan.Size = new Size(86, 45);
+            btnScan.Size = new Size(101, 41);
             btnScan.TabIndex = 1;
-            btnScan.Text = "Scan";
+            btnScan.Text = "\r\nScan";
             btnScan.TextImageRelation = TextImageRelation.ImageAboveText;
             btnScan.UseVisualStyleBackColor = true;
             // 
@@ -170,14 +173,14 @@
             btnRecord.Dock = DockStyle.Fill;
             btnRecord.FlatAppearance.BorderSize = 0;
             btnRecord.FlatStyle = FlatStyle.Flat;
-            btnRecord.Font = new Font("Franklin Gothic Medium", 14.25F);
+            btnRecord.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRecord.ForeColor = Color.White;
             btnRecord.Image = (Image)resources.GetObject("btnRecord.Image");
-            btnRecord.Location = new Point(3, 54);
+            btnRecord.Location = new Point(3, 47);
             btnRecord.Name = "btnRecord";
-            btnRecord.Size = new Size(86, 45);
+            btnRecord.Size = new Size(101, 43);
             btnRecord.TabIndex = 0;
-            btnRecord.Text = "Record";
+            btnRecord.Text = "\r\nRecord";
             btnRecord.TextImageRelation = TextImageRelation.ImageAboveText;
             btnRecord.UseVisualStyleBackColor = true;
             // 
@@ -185,7 +188,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1243, 450);
+            ClientSize = new Size(1300, 681);
             Controls.Add(splitContainer1);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;

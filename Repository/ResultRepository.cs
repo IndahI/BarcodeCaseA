@@ -49,7 +49,8 @@ namespace BarcodeCaseA.Repository
                         CaseModel caseModel = new CaseModel
                         {
                             Id = reader["Id"].ToString(),
-                            Date = reader["Date"].ToString(),
+                            Date = Convert.ToDateTime(reader["Date"]).ToString("yyyy-MM-dd"),
+                            Time = Convert.ToDateTime(reader["Date"]).ToString("HH:mm:ss"),
                             ModelNumber = reader["ModelNumber"].ToString(),
                             GlobalCodeId = reader["GlobalCodeId"].ToString(),
                             ScanResult = reader["ScanResult"].ToString(),
@@ -116,25 +117,6 @@ namespace BarcodeCaseA.Repository
             using (var connection = new SqlConnection(DBConnection_Packing))
             {
                 connection.Open();
-
-                // Pengecekan apakah data sudah ada
-                /***
-                string checkQuery = "SELECT COUNT(*) FROM Packing_Results WHERE ModelCodeId = @ModelCode AND GlobalCodeId = @GlobalCodeId AND ModelNumber = @ModelNumber AND Adjustment = @Adjustment AND CONVERT(DATE, Date) = @Date";
-                using (SqlCommand checkCmd = new SqlCommand(checkQuery, connection))
-                {
-                    checkCmd.Parameters.AddWithValue("@ModelCode", model.ModelCode);
-                    checkCmd.Parameters.AddWithValue("@GlobalCodeId", model.GlobalCodeId);
-                    checkCmd.Parameters.AddWithValue("@ModelNumber", model.ModelNumber);
-                    checkCmd.Parameters.AddWithValue("@Adjustment", model.Adjustment);
-                    checkCmd.Parameters.AddWithValue("@Date", model.Date);
-
-                    int count = (int)checkCmd.ExecuteScalar();
-                    if (count > 0)
-                    {
-                        return (false, "Data with the same value already exists.");
-                    }
-                }
-                ***/
 
                 // Memasukkan data baru
                 string insertQuery = "INSERT INTO Packing_Results (Date, ModelNumber, GlobalCodeId, ScanResult, Adjustment, ModelCodeId, InspectorId) VALUES (@Date, @ModelNumber, @GlobalCodeId, @ScanResult, @Adjustment, @ModelCode, @InspectorId)";
