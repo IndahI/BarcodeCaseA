@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,10 +14,13 @@ namespace BarcodeCaseA.View
     public partial class LoginView : Form, ILoginView
     {
         private bool isClickedOnce = true;
+        private ToolTip toolTip;
+
         public LoginView()
         {
             InitializeComponent();
             HandleAction();
+            tooltipPic();
             textBoxNik.Focus();
         }
 
@@ -64,13 +68,13 @@ namespace BarcodeCaseA.View
             {
                 if (isClickedOnce)
                 {
-                    hiddenPass.Image = Properties.Resources.hidden;
+                    hiddenPass.Image = Properties.Resources.eye;
                     textBoxPassword.PasswordChar = '\0';
                     isClickedOnce = false;
                 }
                 else
                 {
-                    hiddenPass.Image = Properties.Resources.eye;
+                    hiddenPass.Image = Properties.Resources.hidden;
                     textBoxPassword.PasswordChar = '*';
                     isClickedOnce = true;
                 }
@@ -96,6 +100,12 @@ namespace BarcodeCaseA.View
         private void LoginView_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void tooltipPic()
+        {
+            toolTip = new ToolTip();
+            toolTip.SetToolTip(pictureBox4, "Politeknik Elektronik Negeri Surabaya \n& PT. Panasonic Manufacturing Indonesia");
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
