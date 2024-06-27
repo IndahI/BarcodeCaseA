@@ -34,6 +34,7 @@
             label1 = new Label();
             splitContainer1 = new SplitContainer();
             tableLayoutPanel1 = new TableLayoutPanel();
+            btnAbtUs = new Button();
             btnSetting = new Button();
             btnLogOut = new Button();
             btnScan = new Button();
@@ -97,8 +98,9 @@
             tableLayoutPanel1.BackColor = Color.FromArgb(89, 126, 82);
             tableLayoutPanel1.ColumnCount = 1;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(btnAbtUs, 0, 6);
             tableLayoutPanel1.Controls.Add(btnSetting, 0, 2);
-            tableLayoutPanel1.Controls.Add(btnLogOut, 0, 6);
+            tableLayoutPanel1.Controls.Add(btnLogOut, 0, 7);
             tableLayoutPanel1.Controls.Add(btnScan, 0, 0);
             tableLayoutPanel1.Controls.Add(btnRecord, 0, 1);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -106,17 +108,35 @@
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Margin = new Padding(3, 0, 3, 3);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 8;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.381663F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.4255323F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.2127657F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 17.729496F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 21.6693878F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 30.3371449F));
+            tableLayoutPanel1.RowCount = 9;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.628084F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.588105F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 9.392429F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 16.30538F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 19.9288F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 27.900322F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 8.256881F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 99F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 10F));
             tableLayoutPanel1.Size = new Size(107, 592);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btnAbtUs
+            // 
+            btnAbtUs.Dock = DockStyle.Fill;
+            btnAbtUs.FlatAppearance.BorderSize = 0;
+            btnAbtUs.FlatStyle = FlatStyle.Flat;
+            btnAbtUs.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAbtUs.ForeColor = Color.White;
+            btnAbtUs.Image = (Image)resources.GetObject("btnAbtUs.Image");
+            btnAbtUs.Location = new Point(3, 440);
+            btnAbtUs.Margin = new Padding(3, 0, 3, 3);
+            btnAbtUs.Name = "btnAbtUs";
+            btnAbtUs.Size = new Size(101, 36);
+            btnAbtUs.TabIndex = 4;
+            btnAbtUs.Text = "About Us";
+            btnAbtUs.TextImageRelation = TextImageRelation.ImageAboveText;
+            btnAbtUs.UseVisualStyleBackColor = true;
             // 
             // btnSetting
             // 
@@ -126,9 +146,9 @@
             btnSetting.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSetting.ForeColor = Color.White;
             btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
-            btnSetting.Location = new Point(3, 96);
+            btnSetting.Location = new Point(3, 90);
             btnSetting.Name = "btnSetting";
-            btnSetting.Size = new Size(101, 42);
+            btnSetting.Size = new Size(101, 39);
             btnSetting.TabIndex = 3;
             btnSetting.Text = "\r\nSetting";
             btnSetting.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -143,7 +163,7 @@
             btnLogOut.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLogOut.ForeColor = Color.White;
             btnLogOut.Image = (Image)resources.GetObject("btnLogOut.Image");
-            btnLogOut.Location = new Point(3, 473);
+            btnLogOut.Location = new Point(3, 482);
             btnLogOut.Name = "btnLogOut";
             btnLogOut.Size = new Size(101, 93);
             btnLogOut.TabIndex = 2;
@@ -162,7 +182,7 @@
             btnScan.Location = new Point(3, 0);
             btnScan.Margin = new Padding(3, 0, 3, 3);
             btnScan.Name = "btnScan";
-            btnScan.Size = new Size(101, 41);
+            btnScan.Size = new Size(101, 38);
             btnScan.TabIndex = 1;
             btnScan.Text = "\r\nScan";
             btnScan.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -176,9 +196,9 @@
             btnRecord.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnRecord.ForeColor = Color.White;
             btnRecord.Image = (Image)resources.GetObject("btnRecord.Image");
-            btnRecord.Location = new Point(3, 47);
+            btnRecord.Location = new Point(3, 44);
             btnRecord.Name = "btnRecord";
-            btnRecord.Size = new Size(101, 43);
+            btnRecord.Size = new Size(101, 40);
             btnRecord.TabIndex = 0;
             btnRecord.Text = "\r\nRecord";
             btnRecord.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -216,5 +236,6 @@
         private Button btnScan;
         private Button btnRecord;
         private Button btnSetting;
+        private Button btnAbtUs;
     }
 }

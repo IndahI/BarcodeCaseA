@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginView));
             rdPanel1 = new Component.RDPanel();
-            pictureBox4 = new PictureBox();
-            label3 = new Label();
             panel2 = new Panel();
             label2 = new Label();
             btnExit = new Component.RDButton();
@@ -45,7 +43,6 @@
             textBoxPassword = new TextBox();
             pictureBox3 = new PictureBox();
             rdPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)hiddenPass).BeginInit();
@@ -58,8 +55,6 @@
             rdPanel1.BackColor = Color.White;
             rdPanel1.BorderColor = Color.Silver;
             rdPanel1.BorderSize = 1;
-            rdPanel1.Controls.Add(pictureBox4);
-            rdPanel1.Controls.Add(label3);
             rdPanel1.Controls.Add(panel2);
             rdPanel1.Controls.Add(label2);
             rdPanel1.Controls.Add(btnExit);
@@ -76,26 +71,6 @@
             rdPanel1.Name = "rdPanel1";
             rdPanel1.Size = new Size(648, 380);
             rdPanel1.TabIndex = 0;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(589, 349);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(14, 16);
-            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 12;
-            pictureBox4.TabStop = false;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Helvetica", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(44, 348);
-            label3.Name = "label3";
-            label3.Size = new Size(548, 19);
-            label3.TabIndex = 11;
-            label3.Text = "Copyright © 2024 Politeknik Elektronika Negeri Surabaya, All right reserved.";
             // 
             // panel2
             // 
@@ -260,7 +235,6 @@
             FormClosed += LoginView_FormClosed;
             rdPanel1.ResumeLayout(false);
             rdPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)hiddenPass).EndInit();
@@ -283,7 +257,5 @@
         private Component.RDButton btnLogin;
         private PictureBox hiddenPass;
         private PictureBox pictureBox3;
-        private Label label3;
-        private PictureBox pictureBox4;
     }
 }

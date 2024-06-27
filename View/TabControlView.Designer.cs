@@ -68,6 +68,9 @@
             dtFromDate = new DateTimePicker();
             pictureBox6 = new PictureBox();
             label3 = new Label();
+            tabPage3 = new TabPage();
+            label10 = new Label();
+            label9 = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
             tableLayoutPanel6 = new TableLayoutPanel();
             tableLayoutPanel5 = new TableLayoutPanel();
@@ -91,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            tabPage3.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             SuspendLayout();
             // 
@@ -99,6 +103,7 @@
             tabControl1.Appearance = TabAppearance.FlatButtons;
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
@@ -593,6 +598,38 @@
             label3.Text = "Date";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(label10);
+            tabPage3.Controls.Add(label9);
+            tabPage3.Location = new Point(4, 25);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(1291, 600);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "tabPage3";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Helvetica", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.Location = new Point(36, 73);
+            label10.Name = "label10";
+            label10.Size = new Size(325, 57);
+            label10.TabIndex = 12;
+            label10.Text = "Copyright © 2024 \r\nPoliteknik Elektronika Negeri Surabaya and\r\nPT. Panasonic Manufactur, All right reserved.";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Helvetica", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(36, 30);
+            label9.Name = "label9";
+            label9.Size = new Size(107, 25);
+            label9.TabIndex = 0;
+            label9.Text = "About Us";
+            // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.ColumnCount = 1;
@@ -671,6 +708,8 @@
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
             ResumeLayout(false);
@@ -722,5 +761,8 @@
         private DateTimePicker dtFromDate;
         private PictureBox pictureBox6;
         private Label label3;
+        private TabPage tabPage3;
+        private Label label9;
+        private Label label10;
     }
 }

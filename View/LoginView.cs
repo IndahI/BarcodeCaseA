@@ -20,7 +20,6 @@ namespace BarcodeCaseA.View
         {
             InitializeComponent();
             HandleAction();
-            tooltipPic();
             textBoxNik.Focus();
         }
 
@@ -100,12 +99,6 @@ namespace BarcodeCaseA.View
         private void LoginView_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        }
-
-        private void tooltipPic()
-        {
-            toolTip = new ToolTip();
-            toolTip.SetToolTip(pictureBox4, "Politeknik Elektronik Negeri Surabaya \n& PT. Panasonic Manufacturing Indonesia");
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -33,6 +33,7 @@ namespace BarcodeCaseA
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
                 btnScan.BackColor = Color.FromArgb(169,179,136);
                 btnRecord.BackColor = Color.FromArgb(89, 126, 82);
+                btnAbtUs.BackColor = Color.FromArgb(89, 126, 82);
             };
 
             btnRecord.Click += delegate
@@ -41,6 +42,7 @@ namespace BarcodeCaseA
                 tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
                 btnRecord.BackColor = Color.FromArgb(169,179,136);
                 btnScan.BackColor = Color.FromArgb(89, 126, 82);
+                btnAbtUs.BackColor = Color.FromArgb(89, 126, 82);
             };
 
             btnSetting.Click += (sender, e) =>
@@ -62,6 +64,15 @@ namespace BarcodeCaseA
 
                 // Menutup form saat ini
                 this.Close();
+            };
+
+            btnAbtUs.Click += delegate
+            {
+                int selectedTabPageIndex = 2 ;
+                tabControlPresenter.ChangeTabPage(selectedTabPageIndex);
+                btnAbtUs.BackColor = Color.FromArgb(169, 179, 136);
+                btnRecord.BackColor = Color.FromArgb(89, 126, 82);
+                btnScan.BackColor = Color.FromArgb(89, 126, 82);
             };
         }
 
